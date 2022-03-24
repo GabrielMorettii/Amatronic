@@ -1,10 +1,10 @@
-# rentX
+# Amatronic
 
 ## Sumário
 
 1. [Informações gerais do projeto](#informacoes-gerais)
 
-2.[Diagrama de Classes]("#diagrama-de-classe")
+2. [Diagrama de Classes]("#diagrama-de-classe")
 
 3. [Requisitos da aplicação](#requisitos-aplicacao)
 
@@ -30,40 +30,40 @@ Um e-commerce de dispositivos eletrônicos
 
 #### Requisitos funcionais
 
-- [] Deve ser possível cadastrar um novo usuário
+- Deve ser possível cadastrar um novo usuário
 
 #### Regras de negócio
 
-- [] Não deve ser possível cadastrar um usuário com o email já existente
-- [] Não deve ser possível cadastrar um usuário administrador
+- Não deve ser possível cadastrar um usuário com o email já existente
+- Não deve ser possível cadastrar um usuário administrador
 
 ### Listagem de usuários <a name="listagem-usuarios" />
 
 #### Requisitos funcionais
 
-- [ ] Deve ser possível listar todos os usuários
+- Deve ser possível listar todos os usuários
 
 #### Regras de negócio
 
-- [ ] O usuário responsável pela listagem deve ser um usuário administrador.
+- O usuário responsável pela listagem deve ser um usuário administrador.
 
 ### Atualização de usuário <a name="atualizacao-de-usuario" />
 
 #### Requisitos funcionais
 
-- [ ] Deve ser possível atualizar os dados de um usuário
+- Deve ser possível atualizar os dados de um usuário
 
 #### Regras de negócio
 
-- [ ] O usuário responsável pela atualização deve estar logado na aplicação
-- [ ] Não deve ser possível a atualização de email do usuário caso o mesmo já esteja exista
+- O usuário responsável pela atualização deve estar logado na aplicação
+- Não deve ser possível a atualização de email do usuário caso o mesmo já esteja exista
 
-### Remover usuário <a name="remover-usuario" />
+### Remoção de usuário <a name="remover-usuario" />
 
 #### Requisitos funcionais
 
-- [ ] Deve ser possível remover um usuário
+- Deve ser possível remover um usuário
 
 #### Regras de negócio
 
-- [ ] O usuário responsável deve ser um usuário administrador.
+- O usuário responsável deve ser um usuário administrador.
