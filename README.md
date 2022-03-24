@@ -4,7 +4,7 @@
 
 1. [Informações gerais do projeto](#informacoes-gerais)
 
-2. [Diagrama de Classes]("#diagrama-de-classe")
+2. [Diagrama de Classes](#diagrama-de-classe)
 
 3. [Requisitos da aplicação](#requisitos-aplicacao)
 
@@ -26,7 +26,7 @@ Um e-commerce de dispositivos eletrônicos
 
 ## Requisitos da aplicação <a name="requisitos-aplicacao" />
 
-### Cadastro de usuários <a name="#cadastro-usuarios" />
+### Cadastro de usuários <a name="cadastro-usuarios" />
 
 #### Requisitos funcionais
 
