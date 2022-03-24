@@ -4,127 +4,66 @@
 
 1. [Informações gerais do projeto](#informacoes-gerais)
 
-2.[Diagrama de Classes]("diagrama-de-classe")
+2.[Diagrama de Classes]("#diagrama-de-classe")
 
 3. [Requisitos da aplicação](#requisitos-aplicacao)
 
-   3.1. [Cadastro de carros](#cadastro-carros)
+   3.1. [Cadastro de usuários](#cadastro-usuarios)
 
-   3.2. [Listagem de carros](#listagem-carros)
+   3.2. [Listagem de usuários](#listagem-usuarios)
 
-   3.3. [Cadastro de especificação para um carro](#cadastro-especificacoes)
+   3.3. [Atualização de usuário](#atualizacao-de-usuario)
 
-   3.4. [Cadastro de imagens para um carro](#cadastro-imagens-carro)
+   3.4. [Remoção de usuário](#remover-usuario)
 
-   3.5. [Aluguel de carro](#aluguel-carro)
-
-   3.6. [Devolução de carro](#devolucao-carro)
-
-   3.7. [Listagem de aluguéis](#listagem-alugueis)
-
-4. [Comandos principais](#comandos-principais)
-
-   4.1. [Virtualização com Docker](#docker)
-
-   4.2. [Banco de dados](#database)
 
 ## Informações gerais do projeto <a name="informacoes-gerais" />
 
-Um e-commerce de dispositivos eletronônicos
+Um e-commerce de dispositivos eletrônicos
 
 ## Diagrama de Classes <a name="diagrama-de-classe" />
 <img src="./diagram.png">
 
 ## Requisitos da aplicação <a name="requisitos-aplicacao" />
 
-### Cadastro de carros <a name="cadastro-carros" />
+### Cadastro de usuários <a name="#cadastro-usuarios" />
 
 #### Requisitos funcionais
 
-- [x] Deve ser possível cadastrar um novo carro.
+- [] Deve ser possível cadastrar um novo usuário
 
 #### Regras de negócio
 
-- [x] Não deve ser possível cadastrar um carro com uma placa já existente.
-- [x] O carro deve ser cadastrado, por padrão, com disponibilidade.
-- [x] O usuário responsável pelo cadastro deve ser um usuário administrador.
+- [] Não deve ser possível cadastrar um usuário com o email já existente
+- [] Não deve ser possível cadastrar um usuário administrador
 
-### Listagem de carros <a name="listagem-carros" />
+### Listagem de usuários <a name="listagem-usuarios" />
 
 #### Requisitos funcionais
 
-- [ ] Deve ser possível listar todos os carros disponíveis.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome da categoria.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome da marca.
-- [ ] Deve ser possível listar todos os carros disponíveis pelo nome do carro.
+- [ ] Deve ser possível listar todos os usuários
 
 #### Regras de negócio
 
-- [ ] O usuário não precisa estar logado no sistema.
+- [ ] O usuário responsável pela listagem deve ser um usuário administrador.
 
-### Cadastro de especificação para um carro <a name="cadastro-especificacoes" />
+### Atualização de usuário <a name="atualizacao-de-usuario" />
 
 #### Requisitos funcionais
 
-- [ ] Deve ser possível cadastrar uma especificação para um carro.
+- [ ] Deve ser possível atualizar os dados de um usuário
 
 #### Regras de negócio
 
-- [ ] Não deve ser possível cadastrar uma especificação para um carro não cadastrado.
-- [ ] Não deve ser possível cadastrar uma especificação já existente para o mesmo carro.
-- [ ] O usuário responsável pelo cadastro deve ser um usuário administrador.
+- [ ] O usuário responsável pela atualização deve estar logado na aplicação
+- [ ] Não deve ser possível a atualização de email do usuário caso o mesmo já esteja exista
 
-### Cadastro de imagens para um carro <a name="cadastro-imagens-carro" />
+### Remover usuário <a name="remover-usuario" />
 
 #### Requisitos funcionais
 
-- [ ] Deve ser possível cadastrar a imagem do carro.
-
-#### Requisitos não-funcionais
-
-- [ ] Deve utilizar o Multer para upload dos arquivos.
+- [ ] Deve ser possível remover um usuário
 
 #### Regras de negócio
 
-- [ ] O usuário deve poder cadastrar mais de uma imagem para o mesmo carro.
 - [ ] O usuário responsável deve ser um usuário administrador.
-
-### Aluguel de carro <a name="aluguel-carro" />
-
-#### Requisitos funcionais
-
-- [x] Deve ser possível cadastrar um aluguel.
-
-#### Regras de negócio
-
-- [x] O aluguel deve ter duração mínima de 24 horas.
-- [x] Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo usuário.
-- [x] Não deve ser possível cadastrar um aluguel caso já exista um aberto para o mesmo carro.
-- [x] O usuário deve estar logado na aplicação.
-- [x] Ao realizar um aluguel, o status do carro deverá ser alterado para indisponível.
-
-### Devolução de carro <a name="devolucao-carro" />
-
-#### Requisitos funcionais
-
-- [x] Deve ser possível realizar a devolução de um carro.
-
-#### Regras de negócio
-
-- [x] Se o carro for devolvido com menos de 24 horas, deverá ser cobrado diária completa.
-- [x] Ao realizar a devolução, o carro deverá ser liberado para outro aluguel.
-- [x] Ao realizar a devolução, o usuário deverá ser liberado para outro aluguel.
-- [x] Ao realizar a devolução, deverá ser calculado o total do aluguel.
-- [x] Caso o horário de devolução seja superior ao horário previsto de entrega, deverá ser cobrado multa proporcional aos dias de atraso.
-- [x] Caso haja multa, deverá ser somado ao total do aluguel.
-- [x] O usuário deve estar logado na aplicação.
-
-### Listagem de aluguéis para usuário <a name="listagem-alugueis" />
-
-#### Requisitos funcionais
-
-- [x] Deve ser possível a busca de todos os aluguéis para o usuário.
-
-#### Regras de negócio
-
-- [x] O usuário deve estar logado na aplicação.
