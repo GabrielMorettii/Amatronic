@@ -6,10 +6,12 @@
   "author": "GabrielMoretti <gabrielmorettisilva@gmail.com>",
   "license": "MIT",
   "scripts": {
-    "dev": "ts-node-dev --transpile-only --ignore-watch node_modules ./src/server.ts"
+    "dev": "ts-node-dev -r tsconfig-paths/register --inspect --transpile-only --ignore-watch node_modules ./src/server.ts",
+    "typeorm": "ts-node-dev -r tsconfig-paths/register ./node_modules/typeorm/cli"
   },
   "dependencies": {
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "typeorm": "0.2.41"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",

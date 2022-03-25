@@ -1,0 +1,18 @@
+version: '3.7'
+
+services:
+  database_amatronic:
+    image: postgres
+    container_name: database_amatronic
+    ports:
+      - 5432:5432
+    environment:
+      - POSTGRES_USER=docker
+      - POSTGRES_PASSWORD=docker
+      - POSTGRES_DB=amatronic
+    volumes:
+      - pgdata:/data/postgres
+
+volumes:
+  pgdata:
+    driver: local
