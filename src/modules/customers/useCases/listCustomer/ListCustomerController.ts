@@ -1,3 +1,4 @@
+import { CustomerMap } from "@modules/customers/mappers/CustomerMap";
 import { Request, Response } from "express";
 import { container } from "tsyringe";
 import { ListCustomersUseCase } from "./ListCustomersUseCase";
@@ -6,7 +7,9 @@ class ListCustomerController{
   async handle(request: Request, response: Response): Promise<Response>{
     const listCustomersUseCase = container.resolve(ListCustomersUseCase)
 
-    const customers = await listCustomersUseCase.execute();
+    const customerData = await listCustomersUseCase.execute();
+
+    const customers = CustomerMap.toDTOS(customerData);
 
     return response.json(customers)
   }
