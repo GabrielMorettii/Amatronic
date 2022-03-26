@@ -24,7 +24,11 @@ class CustomersRepository implements ICustomersRepository{
   async list(): Promise<Customer[]> {
     return await this.repository.find();
   }
+  async findById(id: string): Promise<Customer> {
+    const customerExistent = await this.repository.findOne(id)
 
+    return customerExistent;
+  }
 
 }
 

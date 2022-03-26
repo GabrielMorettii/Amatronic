@@ -14,7 +14,7 @@ export async function EnsureAuthenticated(request: Request, response: Response, 
     throw new AppError('Token is missing!', 401)
   }
 
-  const [, token] = tokenBody;
+  const [, token] = tokenBody.split(' ');
 
   try{
     const {sub: id} = verify(token, credentials.tokenSecretKey) as tokenResponse;

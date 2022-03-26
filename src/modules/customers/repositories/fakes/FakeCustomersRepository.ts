@@ -24,6 +24,12 @@ class FakeCustomersRepository implements ICustomersRepository{
   async list(): Promise<Customer[]> {
     return this.repository;
   }
+
+  async findById(id: string): Promise<Customer> {
+    const customer = this.repository.find(customer => customer.id === id)
+
+    return customer;
+  }
 }
 
 export {FakeCustomersRepository}

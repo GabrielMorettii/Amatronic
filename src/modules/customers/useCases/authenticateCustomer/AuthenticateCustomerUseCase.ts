@@ -4,6 +4,7 @@ import {compare} from 'bcrypt'
 import {sign} from 'jsonwebtoken'
 import {credentials} from '@config/auth'
 import { IAuthenticateCustomerDTO } from "@modules/customers/dtos/IAuthenticateCustomerDTO";
+import { inject, injectable } from "tsyringe";
 
 interface IReponse{
   customer: {
@@ -13,8 +14,10 @@ interface IReponse{
   token: string;
 }
 
+@injectable()
 class AuthenticateCustomerUseCase{
   constructor(
+    @inject('CustomersRepository')
     private customersRepository: ICustomersRepository
   ){}
 
