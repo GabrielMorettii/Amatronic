@@ -9,7 +9,6 @@ class CustomersRepository implements ICustomersRepository{
   constructor(){
     this.repository = getRepository(Customer);
   }
-
   async create({email,name,password,avatar}: ICreateCustomerDTO): Promise<Customer> {
     const customer = this.repository.create({email,name,password,avatar});
 
@@ -22,6 +21,10 @@ class CustomersRepository implements ICustomersRepository{
 
     return customerExistent;
   }
+  async list(): Promise<Customer[]> {
+    return await this.repository.find();
+  }
+
 
 }
 

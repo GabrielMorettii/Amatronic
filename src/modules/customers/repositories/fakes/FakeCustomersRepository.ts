@@ -20,6 +20,10 @@ class FakeCustomersRepository implements ICustomersRepository{
 
     return customer;
   }
+
+  async list(): Promise<Customer[]> {
+    return this.repository;
+  }
 }
 
 export {FakeCustomersRepository}
