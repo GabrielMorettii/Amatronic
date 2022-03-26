@@ -1,5 +1,5 @@
 import { CreateCustomerController } from '@modules/customers/useCases/createCustomer/CreateCustomerController';
-import { ListCustomerController } from '@modules/customers/useCases/listCustomer/ListCustomerController';
+import { ListCustomersController } from '@modules/customers/useCases/listCustomer/ListCustomersController';
 import {Router} from 'express';
 import { EnsureAdmin } from '../middlewares/EnsureAdmin';
 import { EnsureAuthenticated } from '../middlewares/EnsureAuthenticated';
@@ -7,7 +7,7 @@ import { EnsureAuthenticated } from '../middlewares/EnsureAuthenticated';
 const customersRoutes = Router();
 
 let createCustomerController = new CreateCustomerController();
-let listCustomersController = new ListCustomerController();
+let listCustomersController = new ListCustomersController();
 
 customersRoutes.post('/', createCustomerController.handle)
 customersRoutes.get('/', EnsureAuthenticated, EnsureAdmin,listCustomersController.handle)

@@ -22,19 +22,19 @@ describe('Create Customer', ()=>{
   })
 
   it('Should not be able to create a new customer with an email already taken', async ()=>{
-    const customer = await createCustomerUseCase.execute({
-      email: 'gabrielteste@gmail.com',
+    await createCustomerUseCase.execute({
+      email: "gabrieltesting@gmail.com",
       name: 'gabrieltest',
       password: '123123',
     })
 
     await expect(
       createCustomerUseCase.execute({
-        email: customer.email,
+        email: "gabrieltesting@gmail.com",
         name: 'gabrieltest',
-        password: '123123',
+        password: '1231',
       })
-    ).rejects.toEqual(new AppError('The email already exists'))
+    ).rejects.toEqual(new AppError("The email already exists"));
 
   })
 })

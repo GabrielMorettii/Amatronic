@@ -21,7 +21,7 @@ describe('List Customers', ()=>{
       password: '123123',
     })
 
-    const {token,customer } = await authenticateCustomerUseCase.execute({
+    const {token } = await authenticateCustomerUseCase.execute({
       email: 'gabrielteste@gmail.com',
       password: '123123',
     })
