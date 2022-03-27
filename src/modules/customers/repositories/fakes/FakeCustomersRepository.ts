@@ -1,4 +1,5 @@
 import { ICreateCustomerDTO } from "@modules/customers/dtos/ICreateCustomerDTO";
+import { IUpdateCustomerDTO } from "@modules/customers/dtos/IUpdateCustomerDTO";
 import { Customer } from "@modules/customers/infra/typeorm/entities/Customer";
 import { ICustomersRepository } from "../ICustomersRepository";
 
@@ -30,6 +31,22 @@ class FakeCustomersRepository implements ICustomersRepository{
 
     return customer;
   }
+
+  async update({id, email,name,avatar}: IUpdateCustomerDTO): Promise<Customer> {
+    const customer = this.repository.find(customer => customer.id === id)
+
+    Object.assign(customer, {
+      id,
+      email,
+      name,
+      avatar,
+      updated_at: `${new Date(Date.now())}`
+    })
+
+    return customer;
+  }
+
+
 }
 
 export {FakeCustomersRepository}

@@ -1,4 +1,5 @@
 import { ICreateCustomerDTO } from "@modules/customers/dtos/ICreateCustomerDTO";
+import { IUpdateCustomerDTO } from "@modules/customers/dtos/IUpdateCustomerDTO";
 import { ICustomersRepository } from "@modules/customers/repositories/ICustomersRepository";
 import { getRepository, Repository } from "typeorm";
 import { Customer } from "../entities/Customer";
@@ -9,6 +10,7 @@ class CustomersRepository implements ICustomersRepository{
   constructor(){
     this.repository = getRepository(Customer);
   }
+
   async create({email,name,password,avatar}: ICreateCustomerDTO): Promise<Customer> {
     const customer = this.repository.create({email,name,password,avatar});
 
@@ -28,6 +30,10 @@ class CustomersRepository implements ICustomersRepository{
     const customerExistent = await this.repository.findOne(id)
 
     return customerExistent;
+  }
+
+  async update({id, email,name, avatar}: IUpdateCustomerDTO): Promise<Customer> {
+    return await this.repository.save({id,email,name, avatar})
   }
 
 }
