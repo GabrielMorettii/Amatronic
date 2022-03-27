@@ -7,7 +7,7 @@ async function create(){
 
   const id = uuidv4();
 
-  const password = hash('gabrieldev', 8)
+  const password = await hash('gabrieldev', 8)
 
   await connection.query(`INSERT INTO customers
   (id, name, email, password, avatar, admin, created_at, updated_at)
