@@ -12,7 +12,7 @@ class DeleteCustomerUseCase{
     const findCostumer = await this.customersRepository.findById(id);
 
     if(!findCostumer){
-      throw new AppError('Costumer does not exists!')
+      throw new AppError('Costumer does not exists!', 404)
     }
 
     await this.customersRepository.delete(id);

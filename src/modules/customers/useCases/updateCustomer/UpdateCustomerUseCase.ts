@@ -15,7 +15,7 @@ class UpdateCustomerUseCase{
     const existentUserById = await this.customersRepository.findById(id);
 
     if(!existentUserById){
-      throw new AppError('The user does not exists!')
+      throw new AppError('The user does not exists!', 404)
     }
 
     const existentUserByEmail = await this.customersRepository.findByEmail(email);
