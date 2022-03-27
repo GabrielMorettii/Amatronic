@@ -29,12 +29,12 @@ describe('List Customers Controller', ()=>{
   })
 
   it('Should be able to list all the customers', async ()=>{
-    const responseTonken = await request(app).post('/sessions').send({
+    const responseToken = await request(app).post('/sessions').send({
       email: "gabrieldev@gmail.com",
       password: "gabrieldev"
     })
 
-    const {token} = responseTonken.body;
+    const {token} = responseToken.body;
 
     const response = await request(app).get('/customers').set({
       Authorization: `Bearer ${token}`
