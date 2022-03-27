@@ -7,7 +7,7 @@ import {hash} from 'bcrypt'
 
 let connection: Connection;
 
-describe('Authenticate Customer Controller', ()=>{
+describe('List Customers Controller', ()=>{
   beforeAll(async ()=>{
     connection = await createConnection();
     await connection.runMigrations();
@@ -28,30 +28,18 @@ describe('Authenticate Customer Controller', ()=>{
     await connection.close();
   })
 
-  it('Should be able to authenticate a customer', async ()=>{
-    const response = await request(app).post('/sessions').send({
+  it('Should be able to list all the customers', async ()=>{
+    const responseTonken = await request(app).post('/sessions').send({
       email: "gabrieldev@gmail.com",
       password: "gabrieldev"
     })
 
-    expect(response.body).toHaveProperty('token')
-  })
+    const {token} = responseTonken.body;
 
-  it('Should not be able to authenticate a customer with invalid user credentials', async()=>{
-    const response = await request(app).post('/sessions').send({
-      email: "gabrieldevops@gmail.com",
-      password: "gabrieldevops"
+    const response = await request(app).get('/customers').set({
+      Authorization: `Bearer ${token}`
     })
 
-    expect(response.status).toBe(400);
-  })
-
-  it('Should not be able to authenticate a customer with invalid password credentials', async()=>{
-    const response = await request(app).post('/sessions').send({
-      email: "gabrieldev@gmail.com",
-      password: "gabrieldevops"
-    })
-
-    expect(response.status).toBe(400);
+    expect(response.body.length).toBe(1);
   })
 })
