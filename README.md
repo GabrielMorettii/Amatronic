@@ -66,4 +66,5 @@ Um e-commerce de dispositivos eletrônicos
 
 #### Regras de negócio
 
-- O usuário responsável deve ser um usuário administrador.
+- O usuário responsável pela remoção deve estar logado na aplicação
+

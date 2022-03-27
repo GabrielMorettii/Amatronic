@@ -73,6 +73,10 @@ describe('Update Customer Controller', ()=>{
   })
 
   it('Should not be able to update a non-existent customer', async ()=>{
+    await request(app).delete('/customers').set({
+      Authorization: `Bearer ${tokenAuth}`
+    })
+
     const response = await request(app).put('/customers').send({
       name: "gabrieldevback",
       email: "gabrieldevback@gmail.com",
