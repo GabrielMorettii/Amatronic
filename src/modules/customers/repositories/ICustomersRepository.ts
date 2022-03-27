@@ -6,6 +6,7 @@ interface ICustomersRepository{
   create(data: ICreateCustomerDTO): Promise<Customer>
   list(): Promise<Customer[]>
   update(data: IUpdateCustomerDTO): Promise<Customer>
+  delete(id: string): Promise<void>
   findByEmail(email: string): Promise<Customer>
   findById(id: string): Promise<Customer>
 }

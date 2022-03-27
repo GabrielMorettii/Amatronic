@@ -36,6 +36,10 @@ class CustomersRepository implements ICustomersRepository{
     return await this.repository.save({id,email,name, avatar})
   }
 
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id)
+  }
+
 }
 
 export {CustomersRepository}
