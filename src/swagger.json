@@ -33,7 +33,7 @@
                               "example": {
                                   "email": "emailsample@gmail.com",
                                   "name": "sample name",
-                                  "description": "sample description"
+                                  "password": "sample password"
                               }
                           }
                       }
@@ -97,6 +97,25 @@
                               }
                           }
                       }
+                  },
+                  "401":{
+                      "description": "Something is wrong with the token",
+                      "content": {
+                        "application/json": {
+                            "schema": {
+                                "type": "object",
+                                "properties": {
+                                    "message": {
+                                      "type": "string"
+                                    }
+                                },
+                                "oneOf": {
+                                  "$ref": "#/components/schemas/a",
+                                  "$refi": "#/components/schemas/b"
+                                }
+                            }
+                        }
+                    }
                   }
               }
           },
@@ -213,6 +232,18 @@
             "scheme": "bearer",
             "bearerFormat": "JWT"
         }
+    },
+    "schemas": {
+      "a": {
+        "example": {
+          "message": "Token is missing!"
+        }
+      },
+      "b": {
+        "example": {
+          "message": "Invalid token!"
+        }
+      }
     }
   }
 

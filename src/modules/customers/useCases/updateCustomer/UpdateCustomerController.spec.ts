@@ -85,6 +85,6 @@ describe('Update Customer Controller', ()=>{
       Authorization: `Bearer ${tokenAuth}`
     })
 
-    expect(response.status).toBe(400)
+    expect(response.status).toBe(404)
   })
 })

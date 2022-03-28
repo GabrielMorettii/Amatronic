@@ -41,7 +41,7 @@ describe('Update Customer', ()=>{
         email: 'gabrieltest123@gmail.com',
         avatar: 'test'
       })
-    ).rejects.toEqual(new AppError('The user does not exists!'))
+    ).rejects.toEqual(new AppError('The user does not exists!', 404))
   })
 
   it('should not be able to update a customer email to an email already taken', async ()=>{

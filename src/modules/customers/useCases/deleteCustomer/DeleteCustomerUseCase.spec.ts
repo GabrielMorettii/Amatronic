@@ -30,6 +30,6 @@ describe('Delete Customer', ()=>{
 
   it('should not able able to delete a non-existent customer', async ()=>{
     await expect(deleteCustomerUseCase.execute('123123'))
-    .rejects.toEqual(new AppError('Costumer does not exists!'))
+    .rejects.toEqual(new AppError('Costumer does not exists!', 404))
   })
 })
