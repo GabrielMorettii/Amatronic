@@ -19,6 +19,11 @@ class BrandsRepository implements IBrandsRepository{
   async findByName(name: string): Promise<Brand> {
     return await this.repository.findOne({name})
   }
+
+  async list(): Promise<Brand[]> {
+    return await this.repository.find()
+  }
+
 }
 
 export {BrandsRepository}

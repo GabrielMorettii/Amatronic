@@ -17,6 +17,10 @@ class FakeBrandsRepository implements IBrandsRepository{
   async findByName(name: string): Promise<Brand> {
     return this.repository.find(brand => brand.name === name)
   }
+
+  async list(): Promise<Brand[]> {
+    return this.repository;
+  }
 }
 
 export {FakeBrandsRepository}
