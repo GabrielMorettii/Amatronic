@@ -1,0 +1,24 @@
+import { IBrandsRepository } from "@modules/goods/repositories/IBrandsRepository";
+import { getRepository, Repository } from "typeorm";
+import { Brand } from "../entities/Brand";
+
+class BrandsRepository implements IBrandsRepository{
+  repository: Repository<Brand>;
+
+  constructor(){
+    this.repository = getRepository(Brand);
+  }
+
+  async create(name: string): Promise<Brand> {
+    const brand = this.repository.create({name});
+
+    await this.repository.save(brand);
+
+    return brand;
+  }
+  async findByName(name: string): Promise<Brand> {
+    return await this.repository.findOne({name})
+  }
+}
+
+export {BrandsRepository}
