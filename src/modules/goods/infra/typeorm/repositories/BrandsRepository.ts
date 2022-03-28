@@ -24,6 +24,20 @@ class BrandsRepository implements IBrandsRepository{
     return await this.repository.find()
   }
 
+  async findById(id: string): Promise<Brand> {
+    return await this.repository.findOne(id)
+  }
+
+  async update(id: string, name: string): Promise<Brand> {
+    const brand = this.repository.create({
+      id, name, updated_at: `${new Date(Date.now())}`
+    })
+
+    await this.repository.save(brand);
+
+    return brand;
+  }
+
 }
 
 export {BrandsRepository}
