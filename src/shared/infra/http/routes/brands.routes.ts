@@ -1,7 +1,7 @@
-import { CreateBrandController } from '@modules/goods/useCases/createBrand/CreateBrandController';
-import { DeleteBrandController } from '@modules/goods/useCases/deleteBrand/DeleteBrandController';
-import { ListBrandsController } from '@modules/goods/useCases/listBrands/ListBrandsController';
-import { UpdateBrandController } from '@modules/goods/useCases/updateBrand/UpdateBrandController';
+import { CreateBrandController } from '@modules/goods/useCases/Brand/createBrand/CreateBrandController';
+import { DeleteBrandController } from '@modules/goods/useCases/Brand/deleteBrand/DeleteBrandController';
+import { ListBrandsController } from '@modules/goods/useCases/Brand/listBrands/ListBrandsController';
+import { UpdateBrandController } from '@modules/goods/useCases/Brand/updateBrand/UpdateBrandController';
 import {Router} from 'express'
 import { EnsureAdmin } from '../middlewares/EnsureAdmin';
 import { EnsureAuthenticated } from '../middlewares/EnsureAuthenticated';

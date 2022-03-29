@@ -1,7 +1,7 @@
-import { CreateCategoryController } from '@modules/goods/useCases/createCategory/CreateCategoryController';
-import { ListCategoriesController } from '@modules/goods/useCases/listCategories/ListCategoriesController';
-import { UpdateCategoryController } from '@modules/goods/useCases/updateCategory/UpdateCategoryController';
-import { DeleteCategoryController } from '@modules/goods/useCases/deleteCategory/DeleteCategoryController';
+import { CreateCategoryController } from '@modules/goods/useCases/Category/createCategory/CreateCategoryController';
+import { ListCategoriesController } from '@modules/goods/useCases/Category/listCategories/ListCategoriesController';
+import { UpdateCategoryController } from '@modules/goods/useCases/Category/updateCategory/UpdateCategoryController';
+import { DeleteCategoryController } from '@modules/goods/useCases/Category/deleteCategory/DeleteCategoryController';
 import {Router} from 'express'
 import { EnsureAdmin } from '../middlewares/EnsureAdmin';
 import { EnsureAuthenticated } from '../middlewares/EnsureAuthenticated';
