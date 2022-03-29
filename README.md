@@ -12,6 +12,8 @@
 
     - [Cadastro de Consumidor](#cadastro-consumidor)
 
+    - [Autenticação de Consumidor](#autenticacao-consumidor)
+
     - [Listagem de Consumidores](#listagem-consumidor)
 
     - [Atualização de Consumidor](#atualizacao-de-consumidor)
@@ -61,6 +63,23 @@ Um e-commerce de dispositivos eletrônicos
 
 - Não deve ser possível cadastrar um consumidor com o email já existente
 - A senha do consumidor deve ser criptografada
+
+#### Autenticação de Consumidor <a name="autenticacao-consumidor" />
+
+##### Requisitos funcionais
+
+- Deve ser possível autenticar um consumidor
+
+##### Requisitos não funcionais
+
+- Deve ser utilizado o bcrypt para criptografar a senha
+- Deve ser utilizado o jsonwebtoken como forma de autenticar
+
+##### Regras de negócio
+
+- Não deve ser possível autenticar com o email incorreto
+- Não deve ser possível autenticar com a senha incorreta
+
 
 #### Listagem de Consumidores <a name="listagem-consumidor" />
 
@@ -143,40 +162,40 @@ Um e-commerce de dispositivos eletrônicos
 
 ##### Requisitos funcionais
 
-- Deve ser possível cadastrar uma nova marca
+- Deve ser possível cadastrar uma nova categoria
 
 ##### Regras de negócio
 
-- Não deve ser possível cadastrar uma nova marca com o nome já existente
-- Somente o administrador deve ser responsável por cadastrar uma marca
+- Não deve ser possível cadastrar uma nova categoria com o nome já existente
+- Somente o administrador deve ser responsável por cadastrar uma categoria
 
 #### Listagem de Categorias <a name="listagem-categoria" />
 
 ##### Requisitos funcionais
 
-- Deve ser possível listar todas as marcas
+- Deve ser possível listar todas as categorias
 
 #### Atualização de Categoria <a name="atualizacao-categoria" />
 
 ##### Requisitos funcionais
 
-- Deve ser possível atualizar os dados de uma marca
+- Deve ser possível atualizar os dados de uma categoria
 
 ##### Regras de negócio
 
-- Somente o administrador deve ser responsável pela atualização de uma marca
-- Não deve ser possível atualizar uma marca inexistente
-- Não deve ser possível atualizar uma marca com o nome já existente
+- Somente o administrador deve ser responsável pela atualização de uma categoria
+- Não deve ser possível atualizar uma categoria inexistente
+- Não deve ser possível atualizar uma categoria com o nome já existente
 
 #### Remoção de Categoria <a name="remover-categoria" />
 
 ##### Requisitos funcionais
 
-- Deve ser possível remover uma marca
+- Deve ser possível remover uma categoria
 
 ##### Regras de negócio
 
-- Somente o administrador deve ser responsável pela remoção de uma marca
-- Não deve ser possível remover uma marca inexistente
+- Somente o administrador deve ser responsável pela remoção de uma categoria
+- Não deve ser possível remover uma categoria inexistente
 
 
