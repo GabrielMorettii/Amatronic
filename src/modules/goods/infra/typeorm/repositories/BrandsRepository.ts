@@ -38,6 +38,11 @@ class BrandsRepository implements IBrandsRepository{
     return brand;
   }
 
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
+
+
 }
 
 export {BrandsRepository}

@@ -6,6 +6,7 @@ interface IBrandsRepository{
   findById(id: string): Promise<Brand>
   list(): Promise<Brand[]>
   update(id: string, name: string): Promise<Brand>
+  delete(id: string): Promise<void>
 }
 
 export {IBrandsRepository}

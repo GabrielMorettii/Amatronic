@@ -37,7 +37,6 @@ export default {
      "lcov",
      "text-summary"
    ],
-
   // An object that configures minimum threshold enforcement for coverage results
   // coverageThreshold: undefined,
 
@@ -92,7 +91,7 @@ export default {
   // notifyMode: "failure-change",
 
   // A preset that is used as a base for Jest's configuration
-  preset: 'ts-jest',
+  // preset: 'ts-jest',
 
   // Run tests from one or more projects
   // projects: undefined,
@@ -168,7 +167,33 @@ export default {
   // timers: "real",
 
   // A map from regular expressions to paths to transformers
-  // transform: undefined,
+  transform: {
+    "^.+\\.(t|j)sx?$": [
+      "@swc/jest",
+      {
+        jsc: {
+          parser: {
+            syntax: 'typescript',
+            tsx: false,
+            decorators: true,
+          },
+          target: 'es2017',
+          keepClassNames: true,
+          transform: {
+            legacyDecorator: true,
+            decoratorMetadata: true,
+            react: {
+              runtime: 'automatic'
+            },
+          },
+        },
+        module: {
+          type: 'es6',
+          noInterop: false,
+        },
+      },
+    ],
+  },
 
   // An array of regexp pattern strings that are matched against all source file paths, matched files will skip transformation
   // transformIgnorePatterns: [

@@ -5,7 +5,7 @@ import { CreateCustomerUseCase } from "./CreateCustomerUseCase"
 let createCustomerUseCase: CreateCustomerUseCase;
 let fakeCustomersRepository: FakeCustomersRepository
 
-describe('Create Customer', ()=>{
+describe('Create Customer Use Case', ()=>{
   beforeEach(()=>{
     fakeCustomersRepository = new FakeCustomersRepository();
     createCustomerUseCase = new CreateCustomerUseCase(fakeCustomersRepository);

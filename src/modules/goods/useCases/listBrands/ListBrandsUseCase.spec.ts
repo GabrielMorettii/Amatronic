@@ -6,7 +6,7 @@ let listBrandsUseCase: ListBrandsUseCase;
 let createBrandUseCase: CreateBrandUseCase;
 let fakeBrandsRepository: FakeBrandsRepository
 
-describe('List Brands', ()=>{
+describe('List Brands Use Case', ()=>{
   beforeEach(()=>{
     fakeBrandsRepository = new FakeBrandsRepository();
     listBrandsUseCase = new ListBrandsUseCase(fakeBrandsRepository);

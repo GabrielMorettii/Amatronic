@@ -5,7 +5,7 @@ import { CreateBrandUseCase } from "./CreateBrandUseCase"
 let createBrandUseCase: CreateBrandUseCase;
 let fakeBrandsRepository: FakeBrandsRepository
 
-describe('Create Brand', ()=>{
+describe('Create Brand Use Case', ()=>{
   beforeEach(()=>{
     fakeBrandsRepository = new FakeBrandsRepository();
     createBrandUseCase = new CreateBrandUseCase(fakeBrandsRepository);

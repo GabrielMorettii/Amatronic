@@ -27,11 +27,17 @@ class FakeBrandsRepository implements IBrandsRepository{
   }
 
   async update(id: string, name: string): Promise<Brand> {
-    const brand = this.repository.find(brand => brand.id === id);
+    const brand = await this.findById(id);
 
     Object.assign(brand, {name})
 
     return brand;
+  }
+
+  async delete(id: string): Promise<void> {
+    const brandIndex = this.repository.findIndex(brand => brand.id === id);
+
+    this.repository.splice(brandIndex, 1);
   }
 }
 

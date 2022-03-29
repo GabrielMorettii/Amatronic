@@ -7,7 +7,7 @@ let updateBrandUseCase: UpdateBrandUseCase;
 let createBrandUseCase: CreateBrandUseCase;
 let fakeBrandsRepository: FakeBrandsRepository
 
-describe('Update Brand', ()=>{
+describe('Update Brand Use Case', ()=>{
   beforeEach(()=>{
     fakeBrandsRepository = new FakeBrandsRepository();
     updateBrandUseCase = new UpdateBrandUseCase(fakeBrandsRepository);
