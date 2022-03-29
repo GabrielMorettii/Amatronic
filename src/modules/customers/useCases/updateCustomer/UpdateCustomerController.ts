@@ -4,8 +4,8 @@ import { UpdateCustomerUseCase } from "./UpdateCustomerUseCase";
 
 class UpdateCustomerController{
   async handle(request: Request, response: Response): Promise<Response>{
-    const {email, name, avatar} = request.body;
     const {id} = request.user;
+    const {email, name, avatar} = request.body;
 
     const updateCustomerUseCase = container.resolve(UpdateCustomerUseCase);
 

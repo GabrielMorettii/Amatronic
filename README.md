@@ -8,13 +8,13 @@
 
 3. [Requisitos da aplicação](#requisitos-aplicacao)
 
-   3.1. [Cadastro de usuários](#cadastro-usuarios)
+   3.1. [Cadastro de Consumidor](#cadastro-consumidor)
 
-   3.2. [Listagem de usuários](#listagem-usuarios)
+   3.2. [Listagem de Consumidores](#listagem-consumidor)
 
-   3.3. [Atualização de usuário](#atualizacao-de-usuario)
+   3.3. [Atualização de Consumidor](#atualizacao-de-consumidor)
 
-   3.4. [Remoção de usuário](#remover-usuario)
+   3.4. [Remoção de Consumidor](#remover-consumidor)
 
 
 ## Informações gerais do projeto <a name="informacoes-gerais" />
@@ -26,45 +26,47 @@ Um e-commerce de dispositivos eletrônicos
 
 ## Requisitos da aplicação <a name="requisitos-aplicacao" />
 
-### Cadastro de usuários <a name="cadastro-usuarios" />
+### Cadastro de Consumidor <a name="cadastro-consumidor" />
 
 #### Requisitos funcionais
 
-- Deve ser possível cadastrar um novo usuário
+- Deve ser possível cadastrar um novo consumidor
 
 #### Regras de negócio
 
-- Não deve ser possível cadastrar um usuário com o email já existente
-- Não deve ser possível cadastrar um usuário administrador
+- Não deve ser possível cadastrar um consumidor com o email já existente
+- A senha do consumidor deve ser criptografada
 
-### Listagem de usuários <a name="listagem-usuarios" />
+### Listagem de Consumidores <a name="listagem-consumidor" />
 
 #### Requisitos funcionais
 
-- Deve ser possível listar todos os usuários
+- Deve ser possível listar todos os consumidors
 
 #### Regras de negócio
 
-- O usuário responsável pela listagem deve ser um usuário administrador.
+- O consumidor responsável pela listagem deve ser um consumidor administrador.
 
-### Atualização de usuário <a name="atualizacao-de-usuario" />
+### Atualização de Consumidor <a name="atualizacao-de-consumidor" />
 
 #### Requisitos funcionais
 
-- Deve ser possível atualizar os dados de um usuário
+- Deve ser possível atualizar os dados de um consumidor
 
 #### Regras de negócio
 
-- O usuário responsável pela atualização deve estar logado na aplicação
-- Não deve ser possível a atualização de email do usuário caso o mesmo já esteja exista
+- O consumidor responsável pela atualização deve estar logado na aplicação
+- Não deve ser possível atualizar um consumidor inexistente
+- Não deve ser possível a atualização de email do consumidor caso o mesmo já esteja exista
 
-### Remoção de usuário <a name="remover-usuario" />
+### Remoção de Consumidor <a name="remover-consumidor" />
 
 #### Requisitos funcionais
 
-- Deve ser possível remover um usuário
+- Deve ser possível remover um consumidor
 
 #### Regras de negócio
 
-- O usuário responsável pela remoção deve estar logado na aplicação
+- O consumidor responsável pela remoção deve estar logado na aplicação
+- Não deve ser possível remover um consumidor inexistente
 
