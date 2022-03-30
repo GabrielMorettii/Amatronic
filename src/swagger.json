@@ -21,10 +21,12 @@
                           "type": "object",
                           "properties": {
                               "email": {
-                                  "type": "string"
+                                "type": "string",
+                                "example": "gabrieldevsen@gmail.com"
                               },
                               "password": {
-                                  "type": "string"
+                                  "type": "string",
+                                  "example": "12345"
                               }
                           }
                       }
@@ -33,7 +35,30 @@
           },
           "responses": {
               "200": {
-                  "description": "Ok"
+                  "description": "Ok",
+                  "content": {
+                    "application/json": {
+                        "schema": {
+                          "type": "object",
+                          "properties": {
+                            "customer": {
+                              "type": "object",
+                              "properties": {
+                                "name": {
+                                  "type": "string"
+                                },
+                                "email": {
+                                  "type": "string"
+                                }
+                              }
+                            },
+                            "token": {
+                              "type": "string"
+                            }
+                        }
+                    }
+                  }
+                }
               },
               "400": {
                   "description": "Invalid credentials!"
@@ -56,10 +81,10 @@
                                   "type": "string"
                                 },
                                 "name": {
-                                    "type": "string"
+                                  "type": "string"
                                 },
                                 "password": {
-                                    "type": "string"
+                                  "type": "string"
                                 }
                             },
                             "example": {
@@ -73,7 +98,14 @@
             },
             "responses": {
                 "201": {
-                    "description": "Created"
+                    "description": "Created",
+                    "content":{
+                      "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/customerScheme"
+                        }
+                      }
+                    }
                 },
                 "400": {
                     "description": "The email already exists"
@@ -95,37 +127,10 @@
                     "content": {
                         "application/json": {
                             "schema": {
-                                "type": "array",
-                                "items": {
-                                    "type": "object",
-                                    "properties": {
-                                        "id": {
-                                          "type": "string",
-                                          "format": "uuid"
-                                        },
-                                        "name": {
-                                          "type": "string"
-                                        },
-                                        "email": {
-                                          "type": "string"
-                                        },
-                                        "admin": {
-                                          "type": "boolean"
-                                        },
-                                        "avatar": {
-                                          "type": "string",
-                                          "nullable": true
-                                        },
-                                        "created_at": {
-                                          "type": "string",
-                                          "format": "date-time"
-                                        },
-                                        "updated_at": {
-                                          "type": "string",
-                                          "format": "date-time"
-                                        }
-                                    }
-                                }
+                              "type": "array",
+                              "items": {
+                                "$ref": "#/components/schemas/customerScheme"
+                              }
                             }
                         }
                     }
@@ -135,90 +140,133 @@
                     "content": {
                       "application/json": {
                           "schema": {
-                              "type": "object",
-                              "properties": {
-                                  "message": {
-                                    "type": "string"
-                                  }
-                              }
+                            "$ref": "#/components/schemas/authScheme"
                           }
                       }
                   }
                 }
             }
-        },
-        "put": {
-          "tags": ["Customers"],
-          "summary": "Update a customer",
-          "description": "The costumer can update yours informations",
-          "security": [
-            {
-                "bearerAuth": []
-            }
-          ],
-          "requestBody": {
-              "content": {
-                  "application/json": {
-                      "schema": {
-                          "type": "object",
-                          "properties": {
-                              "name": {
-                                "type": "string",
-                                "required": false
-                              },
-                              "email": {
-                                "type": "string",
-                                "required": false
-                              },
-                              "password": {
-                                "type": "string",
-                                "required": false
-                              },
-                              "avatar": {
-                                "type": "string",
-                                "required": false
-                              }
-                          },
-                          "example": {
-                              "email": "emailsample@gmail.com",
-                              "name": "sample name",
-                              "description": "sample description",
-                              "avatar": "sample avatar"
-                          }
-                      }
-                  }
-              }
-          },
-          "responses": {
-              "200": {
-                "description": "OK"
-              },
-              "400": {
-                "description": "The email is already taken!"
-              },
-              "404": {
-                "description": "The user does not exists!"
-              }
-          }
-        },
-        "delete": {
-          "tags": ["Customers"],
-          "summary": "Delete a customer",
-          "description": "The costumer can delete the his account",
-          "security": [
-            {
-                "bearerAuth": []
-            }
-          ],
-          "responses": {
-              "204": {
-                "description": "No Content"
-              },
-              "404": {
-                "description": "Costumer does not exists!"
-              }
-          }
         }
+    },
+    "/customers/:id": {
+      "put": {
+        "tags": ["Customers"],
+        "summary": "Update a customer",
+        "description": "The costumer can update his informations",
+        "security": [
+          {
+              "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+              "name": "id",
+              "in": "path",
+              "description": "Customer id",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+          }
+       ],
+        "requestBody": {
+            "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "object",
+                      "properties": {
+                        "name": {
+                          "type": "string"
+                        },
+                        "email": {
+                          "type": "string"
+                        },
+                        "avatar": {
+                          "type": "string",
+                          "required": false,
+                          "example": null
+                        }
+                      },
+                      "example": {
+                        "email": "emailsample@gmail.com",
+                        "name": "sample name",
+                        "avatar": "sample avatar"
+                      }
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+              "description": "OK",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "type": "array",
+                      "items": {
+                        "$ref": "#/components/schemas/customerScheme"
+                      }
+                    }
+                }
+              }
+            },
+            "400": {
+              "description": "The email is already taken!"
+            },
+            "401": {
+              "description": "Something is wrong with the token",
+                  "content": {
+                    "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/authScheme"
+                        }
+                    }
+                }
+            },
+            "404": {
+              "description": "The user does not exists!"
+            }
+        }
+      },
+      "delete": {
+        "tags": ["Customers"],
+        "summary": "Delete a customer",
+        "description": "The costumer can delete the his account",
+        "security": [
+          {
+              "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+              "name": "id",
+              "in": "path",
+              "description": "Customer id",
+              "required": true,
+              "schema": {
+                "type": "string"
+              }
+          }
+      ],
+        "responses": {
+            "204": {
+              "description": "No Content"
+            },
+            "401": {
+              "description": "Something is wrong with the token",
+                  "content": {
+                    "application/json": {
+                        "schema": {
+                          "$ref": "#/components/schemas/authScheme"
+                        }
+                    }
+                }
+            },
+            "404": {
+              "description": "Costumer does not exists!"
+            }
+        }
+      }
     },
     "/categories": {
       "post": {
@@ -253,13 +301,27 @@
         },
         "responses": {
             "201": {
-                "description": "Created"
+              "description": "Created",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/categoryScheme"
+                    }
+                }
+              }
             },
             "400": {
-                "description": "The name is already used!"
+              "description": "The name is already used!"
             },
             "401": {
-                "description": "Something is wrong with the token!"
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
             }
         }
       },
@@ -267,6 +329,11 @@
         "tags": ["Category"],
         "summary": "List all categories",
         "description": "List all categories",
+        "security": [
+          {
+              "bearerAuth": []
+          }
+        ],
         "responses": {
             "200": {
                 "description": "OK",
@@ -275,22 +342,26 @@
                         "schema": {
                             "type": "array",
                             "items": {
-                                "type": "object",
-                                "properties": {
-                                    "name": {
-                                        "type": "string"
-                                    },
-                                    "description": {
-                                        "type": "string"
-                                    }
-                                }
+                              "$ref": "#/components/schemas/categoryScheme"
                             }
                         }
                     }
                 }
+            },
+            "401": {
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
             }
         }
-      },
+      }
+    },
+    "/categories/:id": {
       "put": {
         "tags": ["Category"],
         "summary": "Update a category",
@@ -342,7 +413,14 @@
               "description": "The category already exists!"
             },
             "401": {
-              "description": "Something is wrong with the token!"
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
             },
             "404": {
               "description": "The category does not exists!"
@@ -374,7 +452,14 @@
               "description": "No Content"
             },
             "401": {
-              "description": "Something is wrong with the token!"
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
             },
             "404": {
               "description": "The category was not found!"
@@ -390,6 +475,76 @@
             "scheme": "bearer",
             "bearerFormat": "JWT"
         }
+    },
+    "schemas": {
+      "authScheme": {
+        "type": "object",
+        "properties": {
+            "message": {
+              "type": "string",
+              "example": "Token is missing!"
+            }
+        }
+      },
+      "customerScheme": {
+        "type": "object",
+        "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid",
+              "required": false
+            },
+            "name": {
+              "type": "string"
+            },
+            "email": {
+              "type": "string"
+            },
+            "avatar": {
+              "type": "string",
+              "required": false,
+              "example": null
+            },
+            "admin": {
+              "type": "boolean",
+              "required": false,
+              "example": false
+            },
+            "created_at": {
+              "type": "string",
+              "required": false,
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "required": false,
+              "format": "date-time"
+            }
+        }
+      },
+      "categoryScheme": {
+        "type": "object",
+        "properties": {
+            "id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "created_at": {
+              "type": "string",
+              "format": "date-time"
+            },
+            "updated_at": {
+              "type": "string",
+              "format": "date-time"
+            }
+        }
+      }
     }
   }
 
