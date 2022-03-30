@@ -9,7 +9,7 @@ let fakeGoodsRepository: FakeGoodsRepository
 let fakeCategoriesRepository: FakeCategoriesRepository
 let fakeBrandsRepository: FakeBrandsRepository
 
-describe('Create Category Use Case', ()=>{
+describe('Create Good Use Case', ()=>{
   beforeEach(()=>{
     fakeGoodsRepository = new FakeGoodsRepository();
     fakeCategoriesRepository = new FakeCategoriesRepository();

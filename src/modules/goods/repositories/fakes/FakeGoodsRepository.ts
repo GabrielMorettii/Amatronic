@@ -35,6 +35,12 @@ class FakeGoodsRepository implements IGoodsRepository{
 
     return good;
   }
+
+  async delete(id: string): Promise<void> {
+    const indexGood = this.repository.findIndex(good => good.id === id)
+
+     this.repository.splice(indexGood, 1)
+  }
 }
 
 export {FakeGoodsRepository}

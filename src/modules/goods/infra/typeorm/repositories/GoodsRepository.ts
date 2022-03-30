@@ -38,4 +38,9 @@ export class GoodsRepository implements IGoodsRepository{
 
     return good;
   }
+
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id);
+  }
+
 }

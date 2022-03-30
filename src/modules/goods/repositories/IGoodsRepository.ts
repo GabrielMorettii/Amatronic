@@ -8,4 +8,5 @@ export interface IGoodsRepository{
   list(): Promise<Good[]>
   findById(id: string): Promise<Good>
   update(data: IUpdateGoodDTO): Promise<Good>
+  delete(id: string): Promise<void>
 }
