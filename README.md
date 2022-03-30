@@ -217,7 +217,7 @@ Um e-commerce de dispositivos eletrônicos
 
 ##### Requisitos funcionais
 
-- Deve ser possível cadastrar uma novo produto
+- Deve ser possível cadastrar um novo produto
 
 ##### Regras de negócio
 
