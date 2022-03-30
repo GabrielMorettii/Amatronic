@@ -40,6 +40,16 @@
 
     - [Remoção de uma Categoria](#remover-categoria)
 
+  - [Produto](#produto)
+
+    - [Cadastro de um Produto](#cadastro-produto)
+
+    - [Listagem dos Produtos](#listagem-produto)
+
+    - [Atualização de um Produto](#atualizacao-produto)
+
+    - [Remoção de um Produto](#remover-produto)
+
 
 
 ## Informações gerais do projeto <a name="informacoes-gerais" />
@@ -197,5 +207,53 @@ Um e-commerce de dispositivos eletrônicos
 
 - Somente o administrador deve ser responsável pela remoção de uma categoria
 - Não deve ser possível remover uma categoria inexistente
+
+
+
+
+### Produto <a name="produto" />
+
+#### Cadastro de Produto <a name="cadastro-produto" />
+
+##### Requisitos funcionais
+
+- Deve ser possível cadastrar uma novo produto
+
+##### Regras de negócio
+
+- Não deve ser possível cadastrar um novo produto com o nome já existente
+- Não deve ser possível cadastrar um novo produto com a categoria inexistente
+- Não deve ser possível cadastrar um novo produto com a marca inexistente
+- Somente o administrador deve ser responsável por cadastrar um produto
+
+#### Listagem de Produtos <a name="listagem-produto" />
+
+##### Requisitos funcionais
+
+- Deve ser possível listar todos os produtos
+
+#### Atualização de Produto <a name="atualizacao-produto" />
+
+##### Requisitos funcionais
+
+- Deve ser possível atualizar os dados de um produto
+
+##### Regras de negócio
+
+- Não deve ser possível atualizar um produto inexistente
+- Não deve ser possível atualizar um produto com a categoria inexistente
+- Não deve ser possível atualizar um produto com a marca inexistente
+- Somente o administrador deve ser responsável por atualizar um produto
+
+#### Remoção de Produto <a name="remover-produto" />
+
+##### Requisitos funcionais
+
+- Deve ser possível remover um produto
+
+##### Regras de negócio
+
+- Somente o administrador deve ser responsável pela remoção de um produto
+- Não deve ser possível remover um produto inexistente
 
 
