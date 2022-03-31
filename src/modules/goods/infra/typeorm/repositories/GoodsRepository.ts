@@ -1,7 +1,7 @@
 import { ICreateGoodDTO } from "@modules/goods/dtos/ICreateGoodDTO";
 import { IUpdateGoodDTO } from "@modules/goods/dtos/IUpdateGoodDTO";
 import { IGoodsRepository } from "@modules/goods/repositories/IGoodsRepository";
-import { getRepository, Repository } from "typeorm";
+import { getRepository, Repository, In } from "typeorm";
 import { Good } from "../entities/Good";
 
 export class GoodsRepository implements IGoodsRepository{
@@ -42,5 +42,4 @@ export class GoodsRepository implements IGoodsRepository{
   async delete(id: string): Promise<void> {
     await this.repository.delete(id);
   }
-
 }

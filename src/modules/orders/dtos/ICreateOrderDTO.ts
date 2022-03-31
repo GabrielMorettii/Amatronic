@@ -1,7 +1,11 @@
+export interface ISales{
+  id: string
+}
+
 interface ICreateOrderDTO{
-  user_id: string;
-  order_data: Date;
+  customer_id: string;
   total: number;
+  sales: ISales[];
 }
 
 export {ICreateOrderDTO}

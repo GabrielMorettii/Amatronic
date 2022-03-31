@@ -10,9 +10,12 @@ import { IGoodsRepository } from '@modules/goods/repositories/IGoodsRepository'
 import { IGoodImagesRepository } from '@modules/goods/repositories/IGoodImagesRepository'
 import {container} from 'tsyringe'
 import './providers'
+import { IOrdersRepository } from '@modules/orders/repositories/IOrdersRepository'
+import { OrdersRepository } from '@modules/orders/infra/typeorm/repositories/OrdersRepository'
 
 container.registerSingleton<ICustomersRepository>('CustomersRepository', CustomersRepository)
 container.registerSingleton<IBrandsRepository>('BrandsRepository', BrandsRepository)
 container.registerSingleton<ICategoriesRepository>('CategoriesRepository', CategoriesRepository)
 container.registerSingleton<IGoodsRepository>('GoodsRepository', GoodsRepository)
 container.registerSingleton<IGoodImagesRepository>('GoodImagesRepository', GoodImageRepository)
+container.registerSingleton<IOrdersRepository>('OrdersRepository', OrdersRepository)
