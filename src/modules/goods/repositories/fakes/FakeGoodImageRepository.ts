@@ -6,10 +6,10 @@ import {IGoodImagesRepository} from '../IGoodImagesRepository'
 class FakeGoodImageRepository implements IGoodImagesRepository{
   repository: GoodImage[] = [];
 
-  async create(data: ICreateGoodImageDTO): Promise<GoodImage> {
+  async create({image_name, good_id}: ICreateGoodImageDTO): Promise<GoodImage> {
     const goodImage = new GoodImage();
 
-    Object.assign(goodImage, {...data});
+    Object.assign(goodImage, {name: image_name, good_id});
 
     this.repository.push(goodImage);
 

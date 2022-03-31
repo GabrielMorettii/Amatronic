@@ -46,4 +46,43 @@ describe('Update Good Image Use Case', ()=>{
 
     expect(findImages.length).toBe(2);
   })
+
+  it('Should not be able to upload an image to a non-existent good', async ()=>{
+    await expect(
+      uploadGoodImageUseCase.execute({
+        good_id: '123',
+        images_name: ["test image 1", "test image 2"]
+      })
+    ).rejects.toEqual(new AppError("The good does not exists", 404))
+  })
+
+  it('Should be able to delete all previous good images', async ()=>{
+    const category = await fakeCategoriesRepository.create('Category Name', 'Category Desc')
+
+    const brand = await fakeBrandsRepository.create('Test Brand')
+
+    const good = await createGoodUseCase.execute({
+      name: "Iphone X",
+      amount: 9,
+      price: 1000.32,
+      description: "Iphone da 10 geração",
+      category_id: `${category.id}`,
+      brand_id:  `${brand.id}`
+    })
+
+    await uploadGoodImageUseCase.execute({
+      good_id: good.id,
+      images_name: ["test image 1", "test image 2"]
+    })
+
+    await uploadGoodImageUseCase.execute({
+      good_id: good.id,
+      images_name: ["test image 3", "test image 4"]
+    })
+
+    const findImages = await fakeGoodImageRepository.findByGoodId(good.id);
+
+    expect(findImages.length).toBe(2);
+    expect(findImages[0].name).toEqual('test image 3')
+  })
 })
