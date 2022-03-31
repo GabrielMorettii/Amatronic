@@ -18,8 +18,8 @@ export class GoodImageRepository implements IGoodImagesRepository{
     return goodImage;
   }
 
-  async findByGoodId(good_id: string): Promise<GoodImage> {
-    return this.repository.findOne({good_id})
+  async findByGoodId(good_id: string): Promise<GoodImage[]> {
+    return this.repository.find({good_id})
   }
 
   async removeAllImages(good_id: string): Promise<void> {

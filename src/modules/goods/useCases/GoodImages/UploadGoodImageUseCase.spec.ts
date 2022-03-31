@@ -1,0 +1,49 @@
+import { FakeBrandsRepository } from "@modules/goods/repositories/fakes/FakeBrandsRepository";
+import { FakeCategoriesRepository } from "@modules/goods/repositories/fakes/FakeCategoriesRepository";
+import { FakeGoodImageRepository } from "@modules/goods/repositories/fakes/FakeGoodImageRepository";
+import { FakeGoodsRepository } from "@modules/goods/repositories/fakes/FakeGoodsRepository";
+import AppError from "@shared/errors/AppError";
+import { CreateGoodUseCase } from "../Good/createGood/CreateGoodUseCase";
+import { UploadGoodImageUseCase } from "./UploadGoodImageUseCase";
+
+let createGoodUseCase: CreateGoodUseCase;
+let uploadGoodImageUseCase: UploadGoodImageUseCase;
+let fakeGoodsRepository: FakeGoodsRepository
+let fakeCategoriesRepository: FakeCategoriesRepository
+let fakeBrandsRepository: FakeBrandsRepository
+let fakeGoodImageRepository: FakeGoodImageRepository
+
+describe('Update Good Image Use Case', ()=>{
+  beforeEach(()=>{
+    fakeGoodsRepository = new FakeGoodsRepository();
+    fakeCategoriesRepository = new FakeCategoriesRepository();
+    fakeBrandsRepository = new FakeBrandsRepository();
+    fakeGoodImageRepository = new FakeGoodImageRepository();
+    uploadGoodImageUseCase = new UploadGoodImageUseCase(fakeGoodImageRepository, fakeGoodsRepository);
+    createGoodUseCase = new CreateGoodUseCase(fakeGoodsRepository, fakeCategoriesRepository, fakeBrandsRepository);
+  })
+
+  it('Should be able to upload a good image', async ()=>{
+    const category = await fakeCategoriesRepository.create('Category Name', 'Category Desc')
+
+    const brand = await fakeBrandsRepository.create('Test Brand')
+
+    const good = await createGoodUseCase.execute({
+      name: "Iphone X",
+      amount: 9,
+      price: 1000.32,
+      description: "Iphone da 10 geração",
+      category_id: `${category.id}`,
+      brand_id:  `${brand.id}`
+    })
+
+    await uploadGoodImageUseCase.execute({
+      good_id: good.id,
+      images_name: ["test image 1", "test image 2"]
+    })
+
+    const findImages = await fakeGoodImageRepository.findByGoodId(good.id);
+
+    expect(findImages.length).toBe(2);
+  })
+})
