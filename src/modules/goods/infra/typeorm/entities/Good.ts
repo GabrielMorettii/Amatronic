@@ -2,6 +2,7 @@ import { Column, CreateDateColumn, Entity, JoinColumn, ManyToOne, OneToMany, Pri
 import {v4 as uuidV4} from 'uuid'
 import { Brand } from "./Brand";
 import { Category } from "./Category";
+import { GoodImage } from "./GoodImage";
 
 @Entity('goods')
 class Good{
@@ -37,6 +38,9 @@ class Good{
 
   @Column()
   category_id: string;
+
+  @OneToMany(() => GoodImage, GoodImage => GoodImage.good)
+  good_image: GoodImage[]
 
   @CreateDateColumn()
   created_at: Date;
