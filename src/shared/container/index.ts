@@ -9,6 +9,7 @@ import { ICategoriesRepository } from '@modules/goods/repositories/ICategoriesRe
 import { IGoodsRepository } from '@modules/goods/repositories/IGoodsRepository'
 import { IGoodImagesRepository } from '@modules/goods/repositories/IGoodImagesRepository'
 import {container} from 'tsyringe'
+import './providers'
 
 container.registerSingleton<ICustomersRepository>('CustomersRepository', CustomersRepository)
 container.registerSingleton<IBrandsRepository>('BrandsRepository', BrandsRepository)

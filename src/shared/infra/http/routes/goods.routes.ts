@@ -9,7 +9,7 @@ import { UploadGoodImageController } from '@modules/goods/useCases/GoodImages/Up
 import uploadConfig from '@config/upload'
 import multer from 'multer'
 
-const upload = multer(uploadConfig.upload('./tmp'))
+const upload = multer(uploadConfig)
 
 const goodsRoutes = Router();
 
