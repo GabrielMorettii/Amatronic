@@ -58,7 +58,7 @@ export class OrderGoods1648748606470 implements MigrationInterface {
           referencedTableName: 'goods',
           referencedColumnNames: ['id'],
           columnNames: ['good_id'],
-          onDelete: 'RESTRICT',
+          onDelete: 'SET NULL',
           onUpdate: 'CASCADE',
         })
       );
@@ -70,7 +70,7 @@ export class OrderGoods1648748606470 implements MigrationInterface {
           referencedTableName: 'orders',
           referencedColumnNames: ['id'],
           columnNames: ['orderId'],
-          onDelete: 'RESTRICT',
+          onDelete: 'SET NULL',
           onUpdate: 'CASCADE',
         })
       );
