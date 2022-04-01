@@ -78,6 +78,12 @@ class FakeSalesRepository implements ISalesRepository{
 
     return sale;
   }
+
+  async delete(id: string): Promise<void> {
+    const indexSale = this.repository.findIndex(sale => sale.id === id)
+
+     this.repository.splice(indexSale, 1)
+  }
 }
 
 export {FakeSalesRepository}

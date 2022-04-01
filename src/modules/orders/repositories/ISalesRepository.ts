@@ -10,6 +10,7 @@ interface ISalesRepository{
   list(): Promise<Sales[]>
   update(data: IUpdateSalesDTO): Promise<Sales>
   findById(id: string): Promise<Sales>
+  delete(id: string): Promise<void>
 }
 
 export {ISalesRepository}

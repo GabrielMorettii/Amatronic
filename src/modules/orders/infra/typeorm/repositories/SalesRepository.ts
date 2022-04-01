@@ -82,4 +82,8 @@ export class SalesRepository implements ISalesRepository{
 
     return sale;
   }
+
+  async delete(id: string): Promise<void> {
+    await this.repository.delete(id)
+  }
 }
