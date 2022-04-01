@@ -77,15 +77,4 @@ describe('Upload Good Image Controller', ()=>{
 
     expect(response.status).toBe(201);
   })
-
-  it('Should not be able to upload a image to a non-existent good', async ()=>{
-    const response = await request(app).post(`/goods/images/${uuidv4()}`)
-    .set({
-      Authorization: `Bearer ${tokenAuth}`
-    })
-    .attach('images', `${__dirname}/test/test1.jpg`)
-    .attach('images', `${__dirname}/test/test2.jpg`)
-
-    expect(response.status).toBe(404);
-  })
 })
