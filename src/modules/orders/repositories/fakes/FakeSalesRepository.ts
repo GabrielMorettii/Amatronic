@@ -62,6 +62,16 @@ class FakeSalesRepository implements ISalesRepository{
   async update({id, val_unit, quantity, totalValue}: IUpdateSalesDTO): Promise<Sales> {
     const sale = await this.findById(id);
 
+    if(quantity && val_unit){
+      totalValue = Number(quantity) * Number(val_unit)
+    } else if(quantity && !val_unit){
+      totalValue = Number(quantity) * Number(sale.val_unit)
+    } else {
+      totalValue = Number(sale.quantity) * Number(val_unit)
+    }
+
+    totalValue = +totalValue.toFixed(2);
+
     Object.assign(sale, {
       id, val_unit, quantity, totalValue
     })
