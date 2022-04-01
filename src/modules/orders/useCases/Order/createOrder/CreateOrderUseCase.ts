@@ -26,6 +26,10 @@ export class CreateOrderUseCase{
 
     const total = await this.salesRepository.getTotal(sales);
 
+    if(!total){
+      throw new AppError('Some of the sales are not found!', 404)
+    }
+
     const order = await this.ordersRepository.create({customer_id, total, sales})
 
     return order;

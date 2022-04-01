@@ -2,6 +2,7 @@ import { FakeBrandsRepository } from "@modules/goods/repositories/fakes/FakeBran
 import { FakeCategoriesRepository } from "@modules/goods/repositories/fakes/FakeCategoriesRepository";
 import { FakeGoodImageRepository } from "@modules/goods/repositories/fakes/FakeGoodImageRepository";
 import { FakeGoodsRepository } from "@modules/goods/repositories/fakes/FakeGoodsRepository";
+import { LocalStorageProvider } from "@shared/container/providers/StorageProvider/implementations/LocalStorageProvider";
 import AppError from "@shared/errors/AppError";
 import { CreateGoodUseCase } from "../Good/createGood/CreateGoodUseCase";
 import { UploadGoodImageUseCase } from "./UploadGoodImageUseCase";
@@ -11,6 +12,7 @@ let uploadGoodImageUseCase: UploadGoodImageUseCase;
 let fakeGoodsRepository: FakeGoodsRepository
 let fakeCategoriesRepository: FakeCategoriesRepository
 let fakeBrandsRepository: FakeBrandsRepository
+let storageProvider: LocalStorageProvider
 let fakeGoodImageRepository: FakeGoodImageRepository
 
 describe('Update Good Image Use Case', ()=>{
@@ -19,7 +21,8 @@ describe('Update Good Image Use Case', ()=>{
     fakeCategoriesRepository = new FakeCategoriesRepository();
     fakeBrandsRepository = new FakeBrandsRepository();
     fakeGoodImageRepository = new FakeGoodImageRepository();
-    uploadGoodImageUseCase = new UploadGoodImageUseCase(fakeGoodImageRepository, fakeGoodsRepository);
+    storageProvider = new LocalStorageProvider();
+    uploadGoodImageUseCase = new UploadGoodImageUseCase(fakeGoodImageRepository, fakeGoodsRepository, storageProvider);
     createGoodUseCase = new CreateGoodUseCase(fakeGoodsRepository, fakeCategoriesRepository, fakeBrandsRepository);
   })
 

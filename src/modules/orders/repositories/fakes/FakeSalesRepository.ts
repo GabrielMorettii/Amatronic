@@ -10,12 +10,12 @@ class FakeSalesRepository implements ISalesRepository{
   async create({quantity, good}: ICreateSalesDTO): Promise<Sales> {
     const sales = new Sales();
 
-    const total = Number(good.price) * Number(quantity)
+    const totalValue = Number(good.price) * Number(quantity)
 
     Object.assign(sales, {
       good_id: good.id,
       quantity,
-      total,
+      totalValue,
       val_unit: good.price
     });
 
@@ -39,6 +39,10 @@ class FakeSalesRepository implements ISalesRepository{
   }
   async getTotal(sales: ISales[]): Promise<number> {
     const salesData = await this.getSalesById(sales);
+
+    if(salesData.length !== sales.length){
+      return undefined
+    }
 
     const balance = salesData.reduce((acc, sale) => {
       return acc + Number(sale.totalValue)

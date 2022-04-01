@@ -43,6 +43,10 @@ export class SalesRepository implements ISalesRepository{
   async getTotal(sales: ISales[]): Promise<number> {
     const salesData = await this.getSalesById(sales);
 
+    if(salesData.length !== sales.length){
+      return undefined
+    }
+
     const balance = salesData.reduce((acc, sale) => {
       return acc + Number(sale.totalValue)
     }, 0)

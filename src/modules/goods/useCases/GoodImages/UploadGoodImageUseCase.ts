@@ -33,8 +33,13 @@ export class UploadGoodImageUseCase{
     }
 
     images_name.map(async(image_name) => {
-      await this.goodImagesRepository.create({good_id, image_name})
-      await this.storageProvider.save(image_name, 'goods')
+      if(!process.env.NODE_ENV){
+        await this.goodImagesRepository.create({good_id, image_name});
+        await this.storageProvider.save(image_name, 'goods')
+      }else{
+        await this.storageProvider.save(image_name, 'tests')
+        await this.storageProvider.delete(image_name, "tests")
+      }
     })
   }
 }
