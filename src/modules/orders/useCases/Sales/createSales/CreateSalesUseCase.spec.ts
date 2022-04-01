@@ -1,6 +1,4 @@
-import { FakeCustomersRepository } from "@modules/customers/repositories/fakes/FakeCustomersRepository";
 import { FakeGoodsRepository } from "@modules/goods/repositories/fakes/FakeGoodsRepository";
-import { FakeOrdersRepository } from "@modules/orders/repositories/fakes/FakeOrdersRepository";
 import { FakeSalesRepository } from "@modules/orders/repositories/fakes/FakeSalesRepository";
 import AppError from "@shared/errors/AppError";
 import { CreateSalesUseCase } from "./CreateSalesUseCase";
