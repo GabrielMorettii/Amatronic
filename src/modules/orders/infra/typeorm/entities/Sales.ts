@@ -9,16 +9,12 @@ class Sales{
   id: string;
 
   @ManyToOne(() => Order, order=> order.sales)
-  @JoinColumn({ name: "order_id"})
   order: Order
-
-  @Column('uuid')
-  order_id: string;
 
   @Column('uuid')
   good_id: string;
 
-  @ManyToOne(() => Good, {eager: true})
+  @ManyToOne(() => Good)
   @JoinColumn({name: 'good_id'})
   good: Good
 
@@ -37,7 +33,7 @@ class Sales{
     precision: 8,
     scale: 2
   })
-  total: number;
+  totalValue: number;
 
   @CreateDateColumn()
   created_at: Date;

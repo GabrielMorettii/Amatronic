@@ -1,5 +1,6 @@
 import { ISales } from "@modules/orders/dtos/ICreateOrderDTO";
 import { ICreateSalesDTO } from "@modules/orders/dtos/ICreateSalesDTO";
+import { IUpdateSalesDTO } from "@modules/orders/dtos/IUpdateSalesDTO";
 import { Sales } from "@modules/orders/infra/typeorm/entities/Sales";
 import { ISalesRepository } from "../ISalesRepository";
 
@@ -40,10 +41,28 @@ class FakeSalesRepository implements ISalesRepository{
     const salesData = await this.getSalesById(sales);
 
     const balance = salesData.reduce((acc, sale) => {
-      return acc + Number(sale.total)
+      return acc + Number(sale.totalValue)
     }, 0)
 
     return Number(balance.toFixed(2));
+  }
+
+  async list(): Promise<Sales[]> {
+    return this.repository;
+  }
+
+  async findById(id: string): Promise<Sales> {
+   return this.repository.find(sale => sale.id === id);
+  }
+
+  async update({id, val_unit, quantity, totalValue}: IUpdateSalesDTO): Promise<Sales> {
+    const sale = await this.findById(id);
+
+    Object.assign(sale, {
+      id, val_unit, quantity, totalValue
+    })
+
+    return sale;
   }
 }
 

@@ -14,6 +14,10 @@ class FakeOrdersRepository implements IOrdersRepository{
 
     return order;
   }
+
+  async list(): Promise<Order[]> {
+    return this.repository
+  }
 }
 
 export {FakeOrdersRepository}

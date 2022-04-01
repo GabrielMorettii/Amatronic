@@ -1,6 +1,6 @@
 import { Customer } from "@modules/customers/infra/typeorm/entities/Customer";
 import { Good } from "@modules/goods/infra/typeorm/entities/Good";
-import { Column, Entity, JoinColumn, JoinTable, ManyToMany, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
+import { Column, Entity, JoinColumn, ManyToOne, OneToMany, PrimaryGeneratedColumn, UpdateDateColumn } from "typeorm";
 import {v4 as uuidV4} from 'uuid'
 import { Sales } from "./Sales";
 
@@ -23,7 +23,7 @@ class Order{
   })
   total: number;
 
-  @OneToMany(()=> Sales, sales=> sales.order)
+  @OneToMany(()=> Sales, sales=> sales.order, {eager: true})
   @JoinColumn()
   sales: Sales[];
 

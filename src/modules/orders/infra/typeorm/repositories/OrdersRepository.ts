@@ -17,4 +17,8 @@ export class OrdersRepository implements IOrdersRepository{
 
     return order;
   }
+
+  async list(): Promise<Order[]> {
+    return await this.repository.find();
+  }
 }

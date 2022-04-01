@@ -14,12 +14,13 @@ export class OrderGoods1648748606470 implements MigrationInterface {
             default: `uuid_generate_v4()`
           },
           {
-            name: 'order_id',
+            name: 'good_id',
             type: 'uuid'
           },
           {
-            name: 'good_id',
-            type: 'uuid'
+            name: 'orderId',
+            type: 'uuid',
+            isNullable: true
           },
           {
             name: 'quantity',
@@ -68,7 +69,7 @@ export class OrderGoods1648748606470 implements MigrationInterface {
           name: 'FKOrderGoods',
           referencedTableName: 'orders',
           referencedColumnNames: ['id'],
-          columnNames: ['order_id'],
+          columnNames: ['orderId'],
           onDelete: 'RESTRICT',
           onUpdate: 'CASCADE',
         })
@@ -80,6 +81,7 @@ export class OrderGoods1648748606470 implements MigrationInterface {
         'sales',
         'FKOrderGoods'
       );
+
       await queryRunner.dropForeignKey(
         'sales',
         'FKGoodsOrder'

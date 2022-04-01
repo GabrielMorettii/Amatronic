@@ -19,6 +19,15 @@ export class CreateSalesUseCase{
       throw new AppError('The good was not found!', 404)
     }
 
+    if(quantity > good.amount){
+      throw new AppError('Out of stock!')
+    }
+
+    good.amount -= quantity;
+    good.updated_at = new Date(Date.now());
+
+    await this.goodsRepository.create(good)
+
     const sales = await this.salesRepository.create({
       good,
       quantity
