@@ -10,11 +10,11 @@ import { ICategoriesRepository } from "@modules/goods/repositories/ICategoriesRe
 class UpdateGoodsUseCase{
   constructor(
     @inject('GoodsRepository')
-    private goodsRepository: IGoodsRepository,
+    private goodsRepository: IGoodsRepository| any,
     @inject('CategoriesRepository')
-    private categoriesRepository: ICategoriesRepository,
+    private categoriesRepository: ICategoriesRepository| any,
     @inject('BrandsRepository')
-    private brandsRepository: IBrandsRepository,
+    private brandsRepository: IBrandsRepository| any,
   ){}
 
   async execute({id, amount, name, price, description,category_id,brand_id }: IUpdateGoodDTO): Promise<Good>{

@@ -11,9 +11,9 @@ import { inject, injectable } from "tsyringe";
 export class UpdateOrderUseCase{
   constructor(
     @inject('OrdersRepository')
-    private ordersRepository: IOrdersRepository,
+    private ordersRepository: IOrdersRepository| any,
     @inject('SalesRepository')
-    private salesRepository: ISalesRepository,
+    private salesRepository: ISalesRepository| any,
   ){}
 
   async execute({id, customer_id,sales}: IUpdateOrderDTO): Promise<Order> {

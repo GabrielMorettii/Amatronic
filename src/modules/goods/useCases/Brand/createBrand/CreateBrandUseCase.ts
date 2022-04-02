@@ -7,7 +7,7 @@ import { IBrandsRepository } from "@modules/goods/repositories/IBrandsRepository
 class CreateBrandUseCase{
   constructor(
     @inject('BrandsRepository')
-    private brandsRepository: IBrandsRepository,
+    private brandsRepository: IBrandsRepository| any,
   ){}
 
   async execute(name: string): Promise<Brand>{

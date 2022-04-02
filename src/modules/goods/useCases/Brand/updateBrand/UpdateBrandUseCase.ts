@@ -7,7 +7,7 @@ import AppError from "@shared/errors/AppError";
 class UpdateBrandUseCase{
   constructor(
     @inject('BrandsRepository')
-    private brandsRepository: IBrandsRepository,
+    private brandsRepository: IBrandsRepository| any,
   ){}
 
   async execute(id: string, name: string): Promise<Brand>{

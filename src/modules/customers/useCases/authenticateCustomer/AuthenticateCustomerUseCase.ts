@@ -18,7 +18,7 @@ interface IReponse{
 class AuthenticateCustomerUseCase{
   constructor(
     @inject('CustomersRepository')
-    private customersRepository: ICustomersRepository
+    private customersRepository: ICustomersRepository| any
   ){}
 
   async execute({email, password}:IAuthenticateCustomerDTO): Promise<IReponse>{

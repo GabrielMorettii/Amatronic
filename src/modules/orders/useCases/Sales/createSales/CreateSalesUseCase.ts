@@ -7,9 +7,9 @@ import { inject, injectable } from "tsyringe";
 export class CreateSalesUseCase{
   constructor(
     @inject('GoodsRepository')
-    private goodsRepository: IGoodsRepository,
+    private goodsRepository: IGoodsRepository| any,
     @inject('SalesRepository')
-    private salesRepository: ISalesRepository,
+    private salesRepository: ISalesRepository| any,
   ){}
 
   async execute(good_id: string, quantity: number) {

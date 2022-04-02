@@ -6,7 +6,7 @@ import { IBrandsRepository } from "@modules/goods/repositories/IBrandsRepository
 class ListBrandsUseCase{
   constructor(
     @inject('BrandsRepository')
-    private brandsRepository: IBrandsRepository,
+    private brandsRepository: IBrandsRepository| any,
   ){}
 
   async execute(): Promise<Brand[]>{

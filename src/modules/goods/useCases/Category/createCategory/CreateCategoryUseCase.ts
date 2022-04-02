@@ -7,7 +7,7 @@ import { inject, injectable } from "tsyringe";
 class CreateCategoryUseCase{
   constructor(
     @inject('CategoriesRepository')
-    private categoriesRepository: ICategoriesRepository,
+    private categoriesRepository: ICategoriesRepository| any,
   ){}
 
   async execute(name: string, description: string): Promise<Category>{

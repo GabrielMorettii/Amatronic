@@ -6,7 +6,7 @@ import { inject, injectable } from "tsyringe";
 export class DeleteOrderUseCase{
   constructor(
     @inject('OrdersRepository')
-    private ordersRepository: IOrdersRepository,
+    private ordersRepository: IOrdersRepository | any,
   ){}
 
   async execute(order_id: string): Promise<void> {

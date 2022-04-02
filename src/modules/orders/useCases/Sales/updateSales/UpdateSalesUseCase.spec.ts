@@ -1,6 +1,9 @@
 import { FakeGoodsRepository } from "@modules/goods/repositories/fakes/FakeGoodsRepository";
+import { SalesRepository } from "@modules/orders/infra/typeorm/repositories/SalesRepository";
 import { FakeSalesRepository } from "@modules/orders/repositories/fakes/FakeSalesRepository";
+import { ISalesRepository } from "@modules/orders/repositories/ISalesRepository";
 import AppError from "@shared/errors/AppError";
+import { container } from "tsyringe";
 import { CreateSalesUseCase } from "../createSales/CreateSalesUseCase";
 import { UpdateSalesUseCase } from "./UpdateSalesUseCase";
 

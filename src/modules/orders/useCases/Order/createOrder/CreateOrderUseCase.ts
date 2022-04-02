@@ -10,11 +10,11 @@ import { inject, injectable } from "tsyringe";
 export class CreateOrderUseCase{
   constructor(
     @inject('OrdersRepository')
-    private ordersRepository: IOrdersRepository,
+    private ordersRepository: IOrdersRepository | any,
     @inject('CustomersRepository')
-    private customersRepository: ICustomersRepository,
+    private customersRepository: ICustomersRepository | any,
     @inject('SalesRepository')
-    private salesRepository: ISalesRepository,
+    private salesRepository: ISalesRepository | any,
   ){}
 
   async execute(customer_id: string, sales: ISales[]): Promise<Order> {

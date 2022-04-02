@@ -6,7 +6,7 @@ import { ICategoriesRepository } from "@modules/goods/repositories/ICategoriesRe
 class DeleteCategoryUseCase{
   constructor(
     @inject('CategoriesRepository')
-    private categoriesRepository: ICategoriesRepository,
+    private categoriesRepository: ICategoriesRepository| any,
   ){}
 
   async execute(id: string): Promise<void>{

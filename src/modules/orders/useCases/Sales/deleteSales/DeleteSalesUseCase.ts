@@ -7,7 +7,7 @@ import { inject, injectable } from "tsyringe";
 export class DeleteSalesUseCase{
   constructor(
     @inject('SalesRepository')
-    private salesRepository: ISalesRepository,
+    private salesRepository: ISalesRepository| any,
   ){}
 
   async execute(sales_id: string): Promise<void> {

@@ -9,11 +9,11 @@ import { inject, injectable } from "tsyringe";
 export class UploadGoodImageUseCase{
   constructor(
     @inject('GoodImagesRepository')
-    private goodImagesRepository: IGoodImagesRepository,
+    private goodImagesRepository: IGoodImagesRepository| any,
     @inject('GoodsRepository')
-    private goodsRepository: IGoodsRepository,
+    private goodsRepository: IGoodsRepository| any,
     @inject('StorageProvider')
-    private storageProvider: IStorageProvider,
+    private storageProvider: IStorageProvider| any,
   ){}
 
   async execute({good_id,images_name}: IUploadGoodImageDTO) {
@@ -33,13 +33,17 @@ export class UploadGoodImageUseCase{
     }
 
     images_name.map(async(image_name) => {
-      if(!process.env.NODE_ENV){
-        await this.goodImagesRepository.create({good_id, image_name});
-        await this.storageProvider.save(image_name, 'goods')
-      }else{
+      if(process.env.NODE_ENV){
         await this.goodImagesRepository.create({good_id, image_name});
         await this.storageProvider.delete(image_name, "")
+
+        return;
       }
+
+      /* istanbul ignore next */
+      await this.goodImagesRepository.create({good_id, image_name});
+      /* istanbul ignore next */
+      await this.storageProvider.save(image_name, 'goods')
     })
   }
 }

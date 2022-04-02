@@ -8,7 +8,7 @@ import { inject, injectable } from "tsyringe";
 export class UpdateSalesUseCase{
   constructor(
     @inject('SalesRepository')
-    private salesRepository: ISalesRepository,
+    private salesRepository: ISalesRepository| any,
   ){}
 
   async execute({id, val_unit, quantity, totalValue}: IUpdateSalesDTO): Promise<Sales> {

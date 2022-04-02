@@ -9,7 +9,7 @@ import AppError from "@shared/errors/AppError";
 class UpdateCategoryUseCase{
   constructor(
     @inject('CategoriesRepository')
-    private categoriesRepository: ICategoriesRepository,
+    private categoriesRepository: ICategoriesRepository| any,
   ){}
 
   async execute({ id, name, description }: IUpdateCategoryDTO): Promise<Category>{

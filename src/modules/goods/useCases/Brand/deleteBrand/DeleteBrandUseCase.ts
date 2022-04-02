@@ -1,13 +1,12 @@
 import AppError from "@shared/errors/AppError";
 import { inject, injectable } from "tsyringe";
-import { Brand } from "@modules/goods/infra/typeorm/entities/Brand";
 import { IBrandsRepository } from "@modules/goods/repositories/IBrandsRepository";
 
 @injectable()
 class DeleteBrandUseCase{
   constructor(
     @inject('BrandsRepository')
-    private brandsRepository: IBrandsRepository,
+    private brandsRepository: IBrandsRepository| any,
   ){}
 
   async execute(id: string): Promise<void>{

@@ -9,7 +9,7 @@ import {hash} from 'bcrypt'
 class CreateCustomerUseCase{
   constructor(
     @inject('CustomersRepository')
-    private customersRepository: ICustomersRepository
+    private customersRepository: ICustomersRepository| any
   ){}
 
   async execute({email,name,password, avatar}: ICreateCustomerDTO): Promise<Customer>{

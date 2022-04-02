@@ -10,11 +10,11 @@ import { inject, injectable } from "tsyringe";
 class CreateGoodUseCase{
   constructor(
     @inject('GoodsRepository')
-    private goodsRepository: IGoodsRepository,
+    private goodsRepository: IGoodsRepository| any,
     @inject('CategoriesRepository')
-    private categoriesRepository: ICategoriesRepository,
+    private categoriesRepository: ICategoriesRepository| any,
     @inject('BrandsRepository')
-    private brandsRepository: IBrandsRepository,
+    private brandsRepository: IBrandsRepository| any,
   ){}
 
   async execute({amount, name, price, description,category_id,brand_id }: ICreateGoodDTO): Promise<Good>{

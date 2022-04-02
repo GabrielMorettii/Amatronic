@@ -10,7 +10,7 @@ import { inject, injectable } from "tsyringe";
 export class ListOrdersUseCase{
   constructor(
     @inject('OrdersRepository')
-    private ordersRepository: IOrdersRepository,
+    private ordersRepository: IOrdersRepository| any,
   ){}
 
   async execute(): Promise<Order[]> {

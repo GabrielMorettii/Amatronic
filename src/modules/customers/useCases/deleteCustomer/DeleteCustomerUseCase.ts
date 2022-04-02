@@ -6,7 +6,7 @@ import { inject, injectable } from "tsyringe";
 class DeleteCustomerUseCase{
   constructor(
     @inject('CustomersRepository')
-    private customersRepository: ICustomersRepository
+    private customersRepository: ICustomersRepository| any
   ){}
   async execute(id: string): Promise<void>{
     const findCostumer = await this.customersRepository.findById(id);
