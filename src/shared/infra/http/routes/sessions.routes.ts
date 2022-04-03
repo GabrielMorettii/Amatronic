@@ -6,5 +6,8 @@ const sessionsRoutes = Router();
 let authenticateCustomerController = new AuthenticateCustomerController();
 
 sessionsRoutes.post('/sessions', authenticateCustomerController.handle)
+sessionsRoutes.get('/', (req, res) =>{
+  res.status(301).redirect('/docs')
+})
 
 export {sessionsRoutes}

@@ -13,7 +13,7 @@
       "post": {
           "tags": ["Session"],
           "summary": "Authenticate Customer",
-          "description": "The Customer Authentication",
+          "description": "The customer can authenticate itself",
           "requestBody": {
               "content": {
                   "application/json": {
@@ -70,7 +70,7 @@
         "post": {
             "tags": ["Customers"],
             "summary": "Create a customer",
-            "description": "Create a new customer",
+            "description": "The customer can create an account",
             "requestBody": {
                 "content": {
                     "application/json": {
@@ -272,7 +272,7 @@
       "post": {
         "tags": ["Category"],
         "summary": "Create a category",
-        "description": "Create a new category",
+        "description": "The admin can update a add a new category",
         "security": [
             {
                 "bearerAuth": []
@@ -328,7 +328,7 @@
       "get": {
         "tags": ["Category"],
         "summary": "List all categories",
-        "description": "List all categories",
+        "description": "The admin can list all existents categories",
         "responses": {
             "200": {
                 "description": "OK",
@@ -456,7 +456,7 @@
       "post": {
         "tags": ["Brand"],
         "summary": "Create a brand",
-        "description": "Create a new brand",
+        "description": "The admin can create a new brand",
         "security": [
             {
                 "bearerAuth": []
@@ -508,7 +508,7 @@
       "get": {
         "tags": ["Brand"],
         "summary": "List all brands",
-        "description": "List all brands",
+        "description": "The admin can list all existents brands",
         "responses": {
             "200": {
                 "description": "OK",
@@ -722,6 +722,31 @@
             "updated_at": {
               "type": "string",
               "format": "date-time"
+            }
+        }
+      },
+      "goodScheme": {
+        "type": "object",
+        "properties": {
+            "name": {
+              "type": "string"
+            },
+            "description": {
+              "type": "string"
+            },
+            "amount": {
+              "type": "number"
+            },
+            "price": {
+              "type": "number"
+            },
+            "category_id": {
+              "type": "string",
+              "format": "uuid"
+            },
+            "brand_id": {
+              "type": "string",
+              "format": "uuid"
             }
         }
       }

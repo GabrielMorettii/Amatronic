@@ -7,7 +7,7 @@ import cors from 'cors'
 import {router} from './routes'
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from '../../../swagger.json'
-
+import path from 'path'
 import "@shared/container"
 
 createConnection();
@@ -31,6 +31,10 @@ app.use((err: Error, request: Request, response: Response, next: NextFunction)=>
     status: 'error',
     message: `Internal Server Error: ${err.message}`
   })
+})
+
+app.use((req, res, next)=>{
+  res.status(404).sendFile(path.join(process.cwd(), 'public', 'views', '404.html'))
 })
 
 export { app };
