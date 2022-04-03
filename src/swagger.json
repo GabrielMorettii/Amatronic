@@ -540,7 +540,7 @@
           {
               "name": "id",
               "in": "path",
-              "description": "Category id",
+              "description": "Brand id",
               "required": true,
               "schema": {
                   "type": "string"
@@ -600,7 +600,7 @@
           {
               "name": "id",
               "in": "path",
-              "description": "Category id",
+              "description": "Brand id",
               "required": true,
               "schema": {
                   "type": "string"
@@ -693,6 +693,103 @@
                         }
                     }
                 }
+            }
+        }
+      }
+    },
+    "/goods/:id": {
+      "put": {
+        "tags": ["Goods"],
+        "summary": "Update a good",
+        "description": "The admin can update a good data",
+        "security": [
+          {
+              "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+              "name": "id",
+              "in": "path",
+              "description": "Good id",
+              "required": true,
+              "schema": {
+                  "type": "string"
+              }
+          }
+        ],
+        "requestBody": {
+            "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/goodScheme",
+                      "example": {
+                        "name": "Tablet Dobravél 3",
+                        "description": "Tablet moderno que consegue ser dobrado 2",
+                        "amount": 10,
+                        "price": 2050.23,
+                        "category_id": "225b712c-59bb-4058-a708-bbcfd2061ef8",
+                        "brand_id": "7d40d59d-1962-4c19-a0fa-40cba654f5e6"
+                      }
+                    }
+                }
+            }
+        },
+        "responses": {
+            "200": {
+              "description": "OK"
+            },
+            "401": {
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
+            },
+            "404": {
+              "description": "The Good/Category/Brand was not found!"
+            }
+        }
+      },
+      "delete": {
+        "tags": ["Goods"],
+        "summary": "Delete a Good",
+        "description": "The admin can delete the a good",
+        "security": [
+          {
+              "bearerAuth": []
+          }
+        ],
+        "parameters": [
+          {
+              "name": "id",
+              "in": "path",
+              "description": "Good id",
+              "required": true,
+              "schema": {
+                  "type": "string"
+              }
+          }
+        ],
+        "responses": {
+            "204": {
+              "description": "No Content"
+            },
+            "401": {
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
+            },
+            "404": {
+              "description": "The good was not found!"
             }
         }
       }
