@@ -50,6 +50,8 @@
 
     - [Remoção de um Produto](#remover-produto)
 
+    - [Imagem de um Produto]("imagem-produto)
+
 
 
 ## Informações gerais do projeto <a name="informacoes-gerais" />
@@ -256,4 +258,19 @@ Um e-commerce de dispositivos eletrônicos
 - Somente o administrador deve ser responsável pela remoção de um produto
 - Não deve ser possível remover um produto inexistente
 
+#### Imagem de um Produto <a name="imagem-produto" />
 
+##### Requisitos funcionais
+
+- Deve ser possível adicionar imagem a um produto
+
+##### Requisitos não funcionais
+
+- O upload de imagens locais deve ser feito usando o multer
+
+##### Regras de negócio
+
+- Não deve ser possível adicionar imagens a um produto inexistente
+- Deve ser possível remover todas as imagens já existentes para o produto
+- Deve ser possível adicionar as imagens localmente
+- Somente o administrador deve ser responsável por adicionar imagens
