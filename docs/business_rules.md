@@ -1,3 +1,12 @@
+# Writing the application requirements
+
+The most important thing before we even choose the technology to be used in a project, the database, whether it will Docker or not... is that we have defined and mapped out what are the requirements of the application, what the application will do, what are the rules behind each functionality, what you can and can't do
+
+The analyst, who's the person responsible for bridging the gap between the development team and the client, goes to the customer and makes the entire survey of what the system needs, what the customer expects the system to have. Within this conversation with the client, he will map the functional, non-functional requirements, the business rules...
+
+So, for my application I write down below all the application's requirements for someone
+who needs to understand better what my application does:
+
 [Requisitos da aplicação](#requisitos-aplicacao)
 
   - [Consumidor](#consumidor)
@@ -55,6 +64,14 @@
     - [Remoção de uma Ordem](#remover-ordem)
 
   - [Vendas](#venda)
+
+    - [Cadastro de uma Venda](#cadastro-venda)
+
+    - [Listagem de Vendas](#listagem-venda)
+
+    - [Atualização de uma Venda](#atualizacao-venda)
+
+    - [Remoção de uma Venda](#remover-venda)
 
 ## Requisitos da aplicação <a name="requisitos-aplicacao" />
 
@@ -371,3 +388,4 @@ comprada pelo consumidor
 - [x] Somente o administrador deve ser responsável pela remoção de uma venda
 
 
+Thank you for you time 😀!
