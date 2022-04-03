@@ -13,7 +13,11 @@ lerna-debug.log*
 .pnpm-debug.log*
 
 # tmp
-tmp/*
+tmp/**
+!tmp/goods
+!tmp/goods/.gitkeep
+!tmp/tests
+!tmp/tests/.gitkeep
 !tmp/.gitkeep
 
 # Diagnostic reports (https://nodejs.org/api/report.html)

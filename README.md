@@ -37,7 +37,7 @@ personal project to contribute with my Career portfolio
 and was built to serve as an Back-end of an E-commerce application,
 whatever is the theme, it's functional 🔥🚀.
 
-## Class Diagram <a name="class-diagram" />
+## 🏗 Class Diagram <a name="class-diagram" />
 <img src="./diagram.png">
 
 ## 📌 Project requeriments <a name="requirements" />:
