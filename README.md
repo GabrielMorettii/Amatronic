@@ -402,13 +402,16 @@ comprada pelo consumidor
 
 ```
 # Clone this repository
-$ git clone https://github.com/padupe/conceitos_typescript
+$ git clone https://github.com/GabrielMorettii/Amatronic.git
 
 # Add the dependencies
 $ yarn install
 
 # Up the existents containers
 $ docker-compose up
+
+# Run the migrations
+$ yarn typeorm migration:run
 
 # Run the application
 $ yarn dev
@@ -417,31 +420,42 @@ $ yarn dev
 $ yarn test
 ```
 
-## Docs
+## 📚 Docs
 
-<h3>http://localhost:3333/docs/<h3>
+<a href="http//localhost:3333/docs"><strong:>http//localhost:3333/docs<strong></a>
 
-## 🔧 Tools
+## 🔧 Built With
 
-- [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
-- [Cors](https://www.npmjs.com/package/cors 'Cors')
-- [Docker](https://www.docker.com/ 'Docker')
-- [ESLint](https://eslint.org/ 'ESLint')
-- [Express](https://expressjs.com/pt-br/ 'Express')
-- [ExpressJS Async Errors](https://www.npmjs.com/package/express-async-errors 'ExpressJS Async Errors')
-- [Jest](https://jestjs.io/pt-BR/docs/cli 'Jest')
-- [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken')
-- [Multer](https://www.npmjs.com/package/multer 'Multer')
-- [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
-- [Prettier](https://prettier.io/ 'Prettier')
-- [Swagger](https://swagger.io/ 'Swagger')
-- [SuperTest](https://www.npmjs.com/package/supertest 'SuperTest')
-- [TSConfig-Paths](https://www.npmjs.com/package/tsconfig-paths, 'TSConfig-Paths')
-- [TSyringe](https://github.com/microsoft/tsyringe 'TSyringe')
-- [TypeORM](https://typeorm.io/#/ 'TypeORM')
-- [TypeScript](https://www.typescriptlang.org/ 'TypeScript')
+- [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt') - For password-hashing
+- [Cors](https://www.npmjs.com/package/cors 'Cors') - Enable the cross-origin acess
+- [Docker](https://www.docker.com/ 'Docker') - Enables the containerization
+- [ExpressJS Async Errors](https://www.npmjs.com/package/express-async-errors 'ExpressJS Async Errors') - Error handling support for express
+- [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken') - For authentication
+- [Swagger](https://swagger.io/ 'Swagger') - Helps on the RESTful API Design and documentation
+- [TSConfig-Paths](https://www.npmjs.com/package/tsconfig-paths, 'TSConfig-Paths') -
+Modules Mapping
+- [TSyringe](https://github.com/microsoft/tsyringe 'TSyringe') - Dependency Injection
+- [TypeORM](https://typeorm.io/#/ 'TypeORM') - ORM
+- [TypeScript](https://www.typescriptlang.org/ 'TypeScript') - Javascript's superset
+- [eslint](https://eslint.org/) - JS Linter and code style
+- [JEST](https://jestjs.io/) - Tests
+- [prettier](https://github.com/prettier/prettier) - Code formatter
+- [super-test](https://github.com/visionmedia/supertest) - Test HTTP requests
+- [NodeJS](https://nodejs.org/en/) - Build the server
+- [AWS](https://aws.amazon.com/pt/) - IaaS used in the production
+- [GitHub](https://github.com/GabrielMorettii/ignite_rentx/actions) - CI + CD
+- [express](https://expressjs.com/) - Router of the Application
+- [postgreSQL](https://www.postgresql.org/) - Relational Database
+- [pm2](https://pm2.keymetrics.io/) - Process Manager used in the production
+- [dotenv](https://github.com/motdotla/dotenv) - Environment loader
+- [multer](https://github.com/expressjs/multer) - File Upload
+
 ---
 
+## 🧰 Support tools
+
+- [Amazon SES](https://aws.amazon.com/pt/ses/) - Email Provider
+- [Amazon S3](https://aws.amazon.com/pt/s3/) - Storage Service
 
 ## 🧐 Contributing
 
