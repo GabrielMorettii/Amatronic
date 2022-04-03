@@ -1,4 +1,8 @@
-# Amatronic
+<h1 align="center">Amatronic</h1>
+
+<div align="center" style="display: inline_block"><br>
+      <img align="center" alt="Gabriel-Node" height="40" width="40" src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg">
+</div>
 
 ## Sumário
 
@@ -394,3 +398,63 @@ comprada pelo consumidor
 - [x] Não deve ser possível remover uma venda inexistente
 - [x] Somente o administrador deve ser responsável pela remoção de uma venda
 
+## 💻 Enviroment Setup
+
+```
+# Clone this repository
+$ git clone https://github.com/padupe/conceitos_typescript
+
+# Add the dependencies
+$ yarn install
+
+# Up the existents containers
+$ docker-compose up
+
+# Run the application
+$ yarn dev
+
+# Run the tests
+$ yarn test
+```
+
+## Docs
+
+<h3>http://localhost:3333/docs/<h3>
+
+## 🔧 Tools
+
+- [BCrypt](https://www.npmjs.com/package/bcrypt 'BCrypt')
+- [Cors](https://www.npmjs.com/package/cors 'Cors')
+- [Docker](https://www.docker.com/ 'Docker')
+- [ESLint](https://eslint.org/ 'ESLint')
+- [Express](https://expressjs.com/pt-br/ 'Express')
+- [ExpressJS Async Errors](https://www.npmjs.com/package/express-async-errors 'ExpressJS Async Errors')
+- [Jest](https://jestjs.io/pt-BR/docs/cli 'Jest')
+- [JSONWebToken](https://www.npmjs.com/package/jsonwebtoken 'JSONWebToken')
+- [Multer](https://www.npmjs.com/package/multer 'Multer')
+- [PostgreSQL](https://www.postgresql.org/ 'PostgreSQL')
+- [Prettier](https://prettier.io/ 'Prettier')
+- [Swagger](https://swagger.io/ 'Swagger')
+- [SuperTest](https://www.npmjs.com/package/supertest 'SuperTest')
+- [TSConfig-Paths](https://www.npmjs.com/package/tsconfig-paths, 'TSConfig-Paths')
+- [TSyringe](https://github.com/microsoft/tsyringe 'TSyringe')
+- [TypeORM](https://typeorm.io/#/ 'TypeORM')
+- [TypeScript](https://www.typescriptlang.org/ 'TypeScript')
+---
+
+
+## 🧐 Contributing
+
+You can send how many PR's do you want, I'll be glad to analyse and accept them! And if you have any question about the project...
+
+Thank you!
+
+## 👮 License
+
+This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/GabrielMorettii/Amatronic/blob/main/LICENSE) file for details.
+
+<div align="center">
+    <h2>Contact me</h2>
+  <a href="https://www.linkedin.com/in/gabriel-morettii/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
+  <a href="mailto:gabrielmorettisilva@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
+</div>
