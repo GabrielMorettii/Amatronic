@@ -52,6 +52,25 @@
 
     - [Imagem de um Produto]("imagem-produto)
 
+  - [Ordem](#ordem)
+
+    - [Cadastro de uma Ordem](#cadastro-ordem)
+
+    - [Listagem de Ordens](#listagem-ordem)
+
+    - [Atualização de uma Ordem](#atualizacao-ordem)
+
+    - [Remoção de uma Ordem](#remover-ordem)
+
+  - [Vendas](#venda)
+
+    - [Cadastro de uma Venda](#cadastro-venda)
+
+    - [Listagem de Vendas](#listagem-venda)
+
+    - [Atualização de uma Venda](#atualizacao-venda)
+
+    - [Remoção de uma Venda](#remover-venda)
 
 
 ## Informações gerais do projeto <a name="informacoes-gerais" />
@@ -274,3 +293,101 @@ Um e-commerce de dispositivos eletrônicos
 - Deve ser possível remover todas as imagens já existentes para o produto
 - Deve ser possível adicionar as imagens localmente
 - Somente o administrador deve ser responsável por adicionar imagens
+
+
+### Ordem <a name="ordem" />
+
+#### Cadastro de Ordem <a name="cadastro-ordem" />
+
+##### Requisitos funcionais
+
+- Deve ser possível cadastrar um nova ordem
+
+##### Regras de negócio
+
+- O resposável pelo cadastro deve estar logado na aplicação
+- Não deve ser possível cadastrar uma ordem para um consumidor inválido
+- Não deve ser possível cadastrar uma ordem para com vendas inexistentes
+
+#### Listagem de Ordens <a name="listagem-ordem" />
+
+##### Requisitos funcionais
+
+- Deve ser possível listar todas as ordens
+
+##### Regras de negócio
+
+- O resposável pela listagem deve ser um administrador
+
+#### Atualização de Ordem <a name="atualizacao-ordem" />
+
+##### Requisitos funcionais
+
+- Deve ser possível atualizar os dados de uma ordem
+
+##### Regras de negócio
+
+- Não deve ser possível atualizar uma ordem inexistente
+- Não deve ser possível atualizar uma ordem com vendas inexistentes
+- Somente o administrador deve ser responsável por atualizar uma ordem
+
+#### Remoção de Ordem <a name="remover-ordem" />
+
+##### Requisitos funcionais
+
+- Deve ser possível remover uma ordem
+
+##### Regras de negócio
+
+- Somente o administrador deve ser responsável pela remoção de uma ordem
+- Não deve ser possível remover uma ordem inexistente
+
+### Vendas <a name="vendas" />
+
+#### Cadastro de Venda <a name="cadastro-venda" />
+
+##### Requisitos funcionais
+
+- Deve ser possível cadastrar um nova venda
+
+##### Regras de negócio
+
+- O resposável pelo cadastro deve estar logado na aplicação
+- Não deve ser possível cadastrar uma venda para um produto inválido
+- Não deve ser possível cadastrar uma venda para um produto sem estoque
+- Deve ser possível decrementar o estoque de um produto com a quantidade
+comprada pelo consumidor
+- Deve ser possivel atualizar a data de atualização de um produto
+
+#### Listagem de Vendas <a name="listagem-venda" />
+
+##### Requisitos funcionais
+
+- Deve ser possível listar todas as vendas
+
+##### Regras de negócio
+
+- O resposável pela listagem deve ser um administrador
+
+#### Atualização de Venda <a name="atualizacao-venda" />
+
+##### Requisitos funcionais
+
+- Deve ser possível atualizar os dados de uma venda
+
+##### Regras de negócio
+
+- Não deve ser possível atualizar uma venda inexistente
+- Deve ser possível atualizar a data de atualização de uma venda
+- Somente o administrador deve ser responsável por atualizar uma venda
+
+#### Remoção de Venda <a name="remover-venda" />
+
+##### Requisitos funcionais
+
+- Deve ser possível remover uma venda
+
+##### Regras de negócio
+
+- Não deve ser possível remover uma venda inexistente
+- Somente o administrador deve ser responsável pela remoção de uma venda
