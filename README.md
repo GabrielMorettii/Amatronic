@@ -5,7 +5,8 @@
 </div>
 
 <div align="center" style="display: inline_block"><br>
-      <img align="center" alt="Gabriel-Node" height="40" width="40" src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg">
+    <a href="https://www.linkedin.com/in/gabriel-morettii/"><img alt="Made by" src="https://img.shields.io/badge/made%20by-Gabriel%20Moretti-%49c31b"></a>
+    <img align="center" alt="Gabriel-Node" height="40" width="40" src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg">
 </div>
 
 ## Summary
