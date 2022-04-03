@@ -793,6 +793,65 @@
             }
         }
       }
+    },
+    "/goods/images/id": {
+      "post": {
+        "tags": ["Goods"],
+        "summary": "Upload a good image",
+        "description": "The admin can uplaod a good image(s)",
+        "security": [
+            {
+                "bearerAuth": []
+            }
+        ],
+        "parameters": [
+          {
+              "name": "id",
+              "in": "path",
+              "description": "Good id",
+              "required": true,
+              "schema": {
+                  "type": "string"
+              }
+          }
+        ],
+        "requestBody": {
+            "content": {
+              "multipart/form-data": {
+                "schema": {
+                    "type": "object",
+                    "properties": {
+                      "images": {
+                        "type": "array",
+                        "items": {
+                            "type": "string",
+                            "format": "binary"
+                        }
+                      }
+                    }
+                }
+              }
+            }
+        },
+        "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "401": {
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
+            },
+            "404": {
+              "description": "The good does not exists"
+            }
+        }
+      }
     }
   },
   "components": {
