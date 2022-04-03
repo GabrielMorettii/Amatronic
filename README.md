@@ -1,5 +1,9 @@
 <h1 align="center">Amatronic</h1>
 
+<div align="center">
+  <a href="https://opensource.org/licenses/MIT"><img alt="License MIT" src="https://img.shields.io/badge/license-MIT-brightgreen"></a>
+</div>
+
 <div align="center" style="display: inline_block"><br>
       <img align="center" alt="Gabriel-Node" height="40" width="40" src="https://github.com/devicons/devicon/blob/master/icons/nodejs/nodejs-original.svg">
 </div>
@@ -26,12 +30,12 @@
 
 10. [License](#license)
 
-## About the project <a name="general-information" />
+## ⁉ What's Amatronic? <a name="general-information" />
 
 Amatronic is an RESTful API made for educational's purposes, it's a
 personal project to contribute with my Career portfolio
 and was built to serve as an Back-end of an E-commerce application,
-whatever is the theme, it's functional.
+whatever is the theme, it's functional 🔥🚀.
 
 ## Class Diagram <a name="class-diagram" />
 <img src="./diagram.png">
@@ -99,7 +103,7 @@ Modules Mapping
 - [super-test](https://github.com/visionmedia/supertest) - Test HTTP requests
 - [NodeJS](https://nodejs.org/en/) - Build the server
 - [AWS](https://aws.amazon.com/pt/) - IaaS used in the production
-- [GitHub](https://github.com/GabrielMorettii/ignite_rentx/actions) - CI + CD
+- [GitHub](https://github.com/GabrielMorettii/Amatronic/actions) - CI + CD
 - [express](https://expressjs.com/) - Router of the Application
 - [postgreSQL](https://www.postgresql.org/) - Relational Database
 - [pm2](https://pm2.keymetrics.io/) - Process Manager used in the production
