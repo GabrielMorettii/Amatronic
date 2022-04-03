@@ -626,6 +626,76 @@
             }
         }
       }
+    },
+    "/goods": {
+      "post": {
+        "tags": ["Goods"],
+        "summary": "Create a good",
+        "description": "The admin can create a new good",
+        "security": [
+            {
+                "bearerAuth": []
+            }
+        ],
+        "requestBody": {
+            "content": {
+                "application/json": {
+                    "schema": {
+                        "$ref": "#/components/schemas/goodScheme",
+                        "example": {
+                          "name": "Tablet Dobravél 3",
+                          "description": "Tablet moderno que consegue ser dobrado 2",
+                          "amount": 10,
+                          "price": 2050.23,
+                          "category_id": "225b712c-59bb-4058-a708-bbcfd2061ef8",
+                          "brand_id": "7d40d59d-1962-4c19-a0fa-40cba654f5e6"
+                        }
+                    }
+                }
+            }
+        },
+        "responses": {
+            "201": {
+              "description": "Created"
+            },
+            "400": {
+              "description": "The name is already used!"
+            },
+            "401": {
+              "description": "Something is wrong with the token",
+              "content": {
+                "application/json": {
+                    "schema": {
+                      "$ref": "#/components/schemas/authScheme"
+                    }
+                }
+              }
+            },
+            "404": {
+              "description": "The category/brand was not found"
+            }
+        }
+      },
+      "get": {
+        "tags": ["Goods"],
+        "summary": "List all goods",
+        "description": "The customer can list all existents goods",
+        "responses": {
+            "200": {
+                "description": "OK",
+                "content": {
+                    "application/json": {
+                        "schema": {
+                            "type": "array",
+                            "items": {
+                              "$ref": "#/components/schemas/goodScheme"
+                            }
+                        }
+                    }
+                }
+            }
+        }
+      }
     }
   },
   "components": {
