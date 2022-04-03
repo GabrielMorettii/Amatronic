@@ -447,14 +447,12 @@ $ yarn test
 
 You can send how many PR's do you want, I'll be glad to analyse and accept them! And if you have any question about the project...
 
+Email-me: gabrielmorettisilva@gmail.com
+
+Connect with me at [LinkedIn](https://www.linkedin.com/in/gabriel-morettii/)
+
 Thank you!
 
 ## 👮 License
 
 This project is licensed under the MIT License - see the [LICENSE.md](https://github.com/GabrielMorettii/Amatronic/blob/main/LICENSE) file for details.
-
-<div align="center">
-    <h2>Contact me</h2>
-  <a href="https://www.linkedin.com/in/gabriel-morettii/" target="_blank"><img src="https://img.shields.io/badge/LinkedIn-0077B5?style=for-the-badge&logo=linkedin&logoColor=white" target="_blank"></a>
-  <a href="mailto:gabrielmorettisilva@gmail.com" target="_blank"><img src="https://img.shields.io/badge/Gmail-D14836?style=for-the-badge&logo=gmail&logoColor=white" target="_blank"></a>
-</div>
