@@ -7,7 +7,7 @@ const limiter = rateLimit({
   max: 20,
   message: new AppError('Too many requests', 429),
   standardHeaders: true,
-  legacyHeaders: false,
+  legacyHeaders: false
 })
 
 export default limiter;

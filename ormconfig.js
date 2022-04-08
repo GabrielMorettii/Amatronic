@@ -1,3 +1,5 @@
+console.log('db:', process.env.DATABASE_URL)
+
 module.exports = {
   "type": "postgres",
   "url": process.env.DATABASE_URL || "postgres://docker:docker@localhost:5432/amatronic",
