@@ -1,4 +1,4 @@
 export const credentials = {
-  tokenSecretKey: '5c0fafaf8f6a445449b607d6c20c7fa5',
+  tokenSecretKey: process.env.JWT_SECRET,
   tokenExpiresIn: '15min'
 }
