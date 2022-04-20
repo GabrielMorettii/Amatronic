@@ -8,14 +8,16 @@ import swaggerFile from '../../../swagger.json'
 import path from 'path'
 import createConnection from '../typeorm';
 import {router} from './routes'
+import helmet from 'helmet'
 import "@shared/container"
 import RateLimiter from './middlewares/RateLimiter';
 
 createConnection();
 
 const app = express();
-app.use(RateLimiter)
 
+app.use(helmet())
+app.use(RateLimiter)
 app.use(express.json())
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(cors())
