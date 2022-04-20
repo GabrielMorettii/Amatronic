@@ -1,7 +1,8 @@
 import 'reflect-metadata'
+import 'express-async-errors';
+import "@shared/container"
 import AppError from "@shared/errors/AppError";
 import express, { NextFunction, Request, Response } from "express";
-import 'express-async-errors';
 import cors from 'cors'
 import swaggerUi from 'swagger-ui-express'
 import swaggerFile from '../../../swagger.json'
@@ -9,13 +10,11 @@ import path from 'path'
 import createConnection from '../typeorm';
 import {router} from './routes'
 import helmet from 'helmet'
-import "@shared/container"
 import RateLimiter from './middlewares/RateLimiter';
 
 createConnection();
 
 const app = express();
-
 
 app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(helmet())
