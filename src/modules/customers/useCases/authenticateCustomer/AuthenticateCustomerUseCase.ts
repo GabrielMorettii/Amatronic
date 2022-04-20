@@ -34,7 +34,7 @@ class AuthenticateCustomerUseCase{
       throw new AppError('Invalid credentials!')
     }
 
-    const token = sign({}, credentials.tokenSecretKey, {
+    const token = sign({}, process.env.JWT_SECRET, {
       subject: customer.id,
       expiresIn: credentials.tokenExpiresIn
     })

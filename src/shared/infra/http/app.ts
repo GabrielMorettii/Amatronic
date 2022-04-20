@@ -16,9 +16,11 @@ createConnection();
 
 const app = express();
 
+
+app.use(express.static(path.join(process.cwd(), 'public')));
 app.use(helmet())
 app.use(RateLimiter)
-app.use(express.json())
+app.use(express.json({ limit: '10kb'}))
 app.use('/docs', swaggerUi.serve, swaggerUi.setup(swaggerFile));
 app.use(cors())
 app.use(router)

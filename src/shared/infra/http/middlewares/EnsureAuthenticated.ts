@@ -1,6 +1,5 @@
 import { NextFunction, Request, Response } from "express";
 import {verify} from 'jsonwebtoken'
-import {credentials} from '@config/auth'
 import AppError from "@shared/errors/AppError";
 
 interface tokenResponse{
@@ -17,7 +16,7 @@ export async function EnsureAuthenticated(request: Request, response: Response, 
   const [, token] = tokenBody.split(' ');
 
   try{
-    const {sub: id} = verify(token, credentials.tokenSecretKey) as tokenResponse;
+    const {sub: id} = verify(token, process.env.JWT_SECRET) as tokenResponse;
 
     request.user = {
       id
