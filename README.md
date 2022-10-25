@@ -39,7 +39,7 @@ and was built to serve as an Back-end of an E-commerce application,
 whatever is the theme, it's functional 🔥🚀.
 
 ## 🏗 Class Diagram <a name="class-diagram" />
-<img src="./diagram.png">
+<img src="./public/diagram.png">
 
 ## 📌 Project requeriments <a name="requirements" />:
 
